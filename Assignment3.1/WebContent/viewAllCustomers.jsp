@@ -6,7 +6,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lab 4</title>
+<title>View All Customers</title>
 </head>
 <body>
 	<%
@@ -25,7 +25,18 @@
 			<td>Street</td>
 			<td>City</td>
 			<td>State</td>
-			<td>Zip</td>
+			<td>Zip Code</td>
+			<td>Phone 1</td>
+			<td>Phone 2</td>
+			<td>Email 1</td>			
+			<td>Email 2</td>
+			<td>Anniversary Date 1</td>
+			<td>Anniversary Description 1</td>
+			<td>Anniversary Date 2</td>
+			<td>Anniversary Description 2</td>
+			<td>Anniversary Date 3</td>
+			<td>Anniversary Description 3</td>
+						
 		</tr>
 		<%
 			for (Customer cust : customers) {
@@ -41,13 +52,23 @@
 			<td><%=cust.getAddress().getCity()%></td>
 			<td><%=cust.getAddress().getState()%></td>
 			<td><%=cust.getAddress().getZipCode()%></td>
+			<td><%=cust.getAddress().getPhone1()%></td>
+			<td><%=cust.getAddress().getPhone2()%></td>
+			<td><%=cust.getAddress().getEmail1()%></td>
+			<td><%=cust.getAddress().getEmail2()%></td>
+			<td><%=cust.getCredentials().getAnn_Date1()%></td>
+			<td><%=cust.getCredentials().getAnn_Desc1()%></td>
+			<td><%=cust.getCredentials().getAnn_Date2()%></td>
+			<td><%=cust.getCredentials().getAnn_Desc2()%></td>
+			<td><%=cust.getCredentials().getAnn_Date3()%></td>
+			<td><%=cust.getCredentials().getAnn_Desc3()%></td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
 	<p>
-		<a href="createUser.jsp">Click here to add a customer</a>
+		<a href="customer.jsp">Click here to add a customer</a>
 	</p>
 </body>
 </html>

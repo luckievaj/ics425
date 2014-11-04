@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page
-	import="java.util.List,com.abc.model.User,com.abc.model.Address,com.abc.service.CustomerService"%>
+	import="java.util.List,com.abc.model.User,com.abc.model.Address,com.abc.service.UserService"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -23,13 +23,13 @@
 			<td>User Name</td>
 
 			<%
-				for (User user : user) {
+				for (User usr : user) {
 			%>
 		
 		<tr>
-			<td><%=user.getFirstName()%></td>
-			<td><%=user.getLastName()%></td>
-			<td><%=user.getUserName()%></td>
+			<td><%=usr.getFirstName()%></td>
+			<td><%=usr.getLastName()%></td>
+			<td><%=usr.getUserName()%></td>
 		</tr>
 		<%
 			}
