@@ -33,7 +33,7 @@
 		<tr>
 			<td><%=cust.getFirstName()%></td>
 			<td><%=cust.getLastName()%></td>
-			<td><%=cust.getEmailAddress()%></td>
+			<td><%=cust.getAddress().getEmail1()%></td>
 			<td><%=cust.getAddress().getStreet()%></td>
 			<td><%=cust.getAddress().getCity()%></td>
 			<td><%=cust.getAddress().getState()%></td>

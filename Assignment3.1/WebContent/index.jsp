@@ -11,11 +11,11 @@
 
 	<form method="get">
 		<button type="button"
-			onclick="viewUsers.jsp">View All Users</button>
+			onclick="viewAllUsers.jsp">View All Users</button>
 			<button type="button"
 			onclick="createUser.jsp">Create a new User</button>
 			<button type="button"
-			onclick="viewCustomer.jsp">View All Customers</button>
+			onclick="viewAllCustomer.jsp">View All Customers</button>
 			<button type="button"
 			onclick="name.jsp">Create a new Customer</button>
 	</form>

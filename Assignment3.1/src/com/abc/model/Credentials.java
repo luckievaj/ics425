@@ -3,6 +3,18 @@ package com.abc.model;
 public class Credentials {
 	private String ann_date1;
 	private String ann_desc1;
+
+	public Credentials(){
+	}
+	public Credentials (String ann_date1, String ann_date2, String ann_date3, String ann_desc1, String ann_desc2, String ann_desc3){
+		this.ann_date1 = ann_date1;
+		this.ann_date2 = ann_date2;
+		this.ann_date3 = ann_date3;
+		this.ann_desc1 = ann_desc1;
+		this.ann_desc2 = ann_desc2;
+		this.ann_desc3 = ann_desc3;
+	}
+
 	public void setAnn_Date1(String ann_date1) { this.ann_date1 = ann_date1; }
 	public String getAnn_Date1() { return ann_date1; }
 	public void setAnn_Desc1(String ann_desc1) { this.ann_desc1 = ann_desc1; }
