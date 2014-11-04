@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.model.User;
+import com.abc.model.Customer;
 /**
  * Servlet implementation class CustomerServlet
  */
@@ -38,21 +38,22 @@ public class CustomerServlet extends HttpServlet {
 			forwardedPage = cancelPage;
 		} else {
 			synchronized(request.getSession() ) {
-				User person = (User) request.getSession().getAttribute("person");
-				if (null == person) {
-					person = new User();
-					request.getSession().setAttribute("person", person);
+				
+//need to figure out where "Person" is defined and what to change it to
+				
+				Customer cust = (Customer) request.getSession().getAttribute("Person");
+				if (null == cust) {
+					cust = new Customer();
+					request.getSession().setAttribute("Person", cust);
 				}
 
 				if ("".equalsIgnoreCase(request.getParameter("firstName")) 
-						|| "".equalsIgnoreCase(request.getParameter("lastName"))
-						|| "".equalsIgnoreCase(request.getParameter("userPassword"))) {
+						|| "".equalsIgnoreCase(request.getParameter("lastName"))) {
 					request.setAttribute("message", "Please enter all fields!");
 					forwardedPage = cancelPage;
 				} else {
-					person.setFirstName(request.getParameter("firstName"));
-					person.setLastName(request.getParameter("lastName"));
-					person.setUserPassword(request.getParameter("userPassword"));
+					cust.setFirstName(request.getParameter("firstName"));
+					cust.setLastName(request.getParameter("lastName"));
 				}            
 			}        
 			getServletContext().getRequestDispatcher(forwardedPage).

@@ -7,9 +7,36 @@
 <title>Home Page</title>
 </head>
 <body>
-	<h1>Start Page</h1>
+	<center>
+		<h1>Database Management Console</h1>
 
-	<form method="get">
+
+		<form action="viewAllUsers.jsp" method="post">
+			<br />
+			<!-- 			<h2>Please click on the Create button.</h2>
+ -->
+			<br /> <input type="submit" value="View All Users">
+		</form>
+		<form action="createUser.jsp" method="post">
+			<br />
+			<!-- 			<h2>Please click on the Create button.</h2>
+ -->
+			<br /> <input type="submit" value="Create a New User">
+		</form>
+		<form action="viewAllCustomers.jsp" method="post">
+			<br />
+			<!-- 			<h2>Please click on the Create button.</h2>
+ -->
+			<br /> <input type="submit" value="View All Customers">
+		</form>
+		<form action="customer.jsp" method="post">
+			<br />
+			<!-- 			<h2>Please click on the Create button.</h2>
+ -->
+			<br /> <input type="submit" value="Create a New Customer">
+		</form>
+
+		<!-- <form method="get">
 		<button type="button"
 			onclick="viewAllUsers.jsp">View All Users</button>
 			<button type="button"
@@ -17,7 +44,8 @@
 			<button type="button"
 			onclick="viewAllCustomer.jsp">View All Customers</button>
 			<button type="button"
-			onclick="name.jsp">Create a new Customer</button>
+			onclick="name.jsp">Create a new Customer</button> -->
+	</center>
 	</form>
 </body>
 </html>

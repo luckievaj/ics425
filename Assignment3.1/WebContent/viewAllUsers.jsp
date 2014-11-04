@@ -9,34 +9,36 @@
 <title>View All Users</title>
 </head>
 <body>
-	<%
-		List<User> user = (List<User>) request.getAttribute("user");
-		if (null == user) {
-			user = UserService.getAllUsers();
-		}
-	%>
-	<h1>List of Users</h1>
-	<table>
-		<tr>
-			<td>First Name</td>
-			<td>Last Name</td>
-			<td>User Name</td>
-
-			<%
-				for (User usr : user) {
-			%>
-		
-		<tr>
-			<td><%=usr.getFirstName()%></td>
-			<td><%=usr.getLastName()%></td>
-			<td><%=usr.getUserName()%></td>
-		</tr>
+	<center>
+	<h1>List of All Users</h1>
 		<%
+			List<User> user = (List<User>) request.getAttribute("user");
+			if (null == user) {
+				user = UserService.getAllUsers();
 			}
 		%>
-	</table>
-	<p>
-		<a href="createUser.jsp">Click here to add a customer</a>
-	</p>
+		<table>
+			<tr>
+				<td>First Name</td>
+				<td>Last Name</td>
+				<td>User Name</td>
+
+				<%
+					for (User usr : user) {
+				%>
+			
+			<tr>
+				<td><%=usr.getFirstName()%></td>
+				<td><%=usr.getLastName()%></td>
+				<td><%=usr.getUserName()%></td>
+			</tr>
+			<%
+				}
+			%>
+		</table>
+		<p>
+			<a href="createUser.jsp">Click here to add a customer</a>
+		</p>
+	</center>
 </body>
 </html>
