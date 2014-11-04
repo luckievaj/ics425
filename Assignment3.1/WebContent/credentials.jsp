@@ -18,8 +18,13 @@
 		<p>Email Address: ${address.email}</p>
 		<p>Phone Number: ${address.phone}</p>
 	<form action="CredentialsServlet" method="post">
-		<p>Username:<input type="text" name="username" value="${credentials.username }"/></p>
-		<p>Password:<input type="password" name="password" value="${credentials.password }"/></p>
+		<p>Anniversary Date:<input type="text" name="ann_date1" value="${credentials.ann_date1 }"/></p>
+		<p>Anniversary Description:<input type="text" name="ann_desc1" value="${credentials.ann_desc1 }"/></p>
+		<p>Anniversary Date:<input type="text" name="ann_date2" value="${credentials.ann_date2 }"/></p>
+		<p>Anniversary Description:<input type="text" name="ann_desc2" value="${credentials.ann_desc2 }"/></p>
+		<p>Anniversary Date:<input type="text" name="ann_date3" value="${credentials.ann_date3 }"/></p>
+		<p>Anniversary Description:<input type="text" name="ann_desc3" value="${credentials.ann_desc3 }"/></p>
+		
 		<input type="submit" name="next" value="Next" />
 	    <input type="submit" name="previous" value="Previous" />
 	    <input type="submit" name="cancel" value="Cancel" />

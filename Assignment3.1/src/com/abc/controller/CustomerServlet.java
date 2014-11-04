@@ -8,17 +8,17 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.model.Person;
+import com.abc.model.Customer;
 /**
  * Servlet implementation class NameServlet
  */
-@WebServlet("/NameServlet")
-public class NameServlet extends HttpServlet {
+@WebServlet("/CustomerServlet")
+public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
 	private String nextPage = "/address.jsp";
 
-	public NameServlet() {
+	public CustomerServlet() {
 		super();
 	}
 
@@ -38,9 +38,9 @@ public class NameServlet extends HttpServlet {
 			forwardedPage = cancelPage;
 		} else {
 			synchronized(request.getSession() ) {
-				Person person = (Person) request.getSession().getAttribute("person");
+				Customer person = (Customer) request.getSession().getAttribute("person");
 				if (null == person) {
-					person = new Person();
+					person = new Customer();
 					request.getSession().setAttribute("person", person);
 				}
 

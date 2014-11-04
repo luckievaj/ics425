@@ -12,11 +12,11 @@ import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
 import com.abc.model.Address;
-import com.abc.model.Person;
+import com.abc.model.Customer;
 
 public class CustomerService {
 
-	public static void persistCustomer(Person person) {
+	public static void persistCustomer(Customer person) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		Statement stmt = null;

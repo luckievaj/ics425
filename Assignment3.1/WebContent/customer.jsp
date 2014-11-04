@@ -8,7 +8,7 @@
 <title>Name</title>
 </head>
 <body>
-	<form action="NameServlet" method="post">
+	<form action="CustomerServlet" method="post">
         <p>First:<input type="text" name="firstName" value="${person.firstName}" /></p>
         <p>Last:<input type="text" name="lastName" value="${person.lastName}" /></p>
                 

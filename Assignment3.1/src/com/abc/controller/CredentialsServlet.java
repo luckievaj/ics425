@@ -13,7 +13,7 @@ import com.abc.model.Credentials;
 @WebServlet("/CredentialsServlet")
 public class CredentialsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	private String cancelPage = "/name.jsp";
+	private String cancelPage = "/index.jsp";
     private String previousPage = "/address.jsp";
     private String nextPage = "/confirm.jsp";
 
@@ -42,9 +42,12 @@ public class CredentialsServlet extends HttpServlet {
                 	credentials = new Credentials();
                     request.getSession().setAttribute("credentials", credentials);
                 }
-                credentials.setUsername(request.getParameter("username"));
-                credentials.setPassword(request.getParameter("password"));
-                
+                credentials.setAnn_Date1(request.getParameter("ann_date1"));
+                credentials.setAnn_Desc1(request.getParameter("ann_desc1"));
+                credentials.setAnn_Date2(request.getParameter("ann_date2"));
+                credentials.setAnn_Desc2(request.getParameter("ann_desc2"));
+                credentials.setAnn_Date3(request.getParameter("ann_date3"));
+                credentials.setAnn_Desc3(request.getParameter("ann_desc3"));
             }        
         }
         getServletContext().getRequestDispatcher(forwardedPage).
