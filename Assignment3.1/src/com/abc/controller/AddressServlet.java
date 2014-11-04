@@ -49,8 +49,11 @@ public class AddressServlet extends HttpServlet {
                 address.setCity(request.getParameter("city"));
                 address.setState(request.getParameter("state"));
                 address.setZipCode(request.getParameter("zipCode"));
-                address.setPhone(request.getParameter("phone"));
-                address.setEmail(request.getParameter("email"));
+                address.setPhone1(request.getParameter("phone1"));
+                address.setPhone2(request.getParameter("phone2"));
+                address.setEmail1(request.getParameter("email1"));
+                address.setEmail2(request.getParameter("email2"));
+
             }        
         }
         getServletContext().getRequestDispatcher(forwardedPage).

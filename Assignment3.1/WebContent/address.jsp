@@ -16,8 +16,10 @@
 	    <p>City:<input type="text" name="city" value="${address.city}" /></p>
 	    <p>State:<input type="text" name="state" value="${address.state}" /></p>
 	    <p>Zip code:<input type="text" name="zipCode" value="${address.zipCode}" /></p>
-	    <p>Phone Number:<input type="text" name="phone" value="${address.phone}"/></p>
-	    <p>Email Address:<input type="text" name="email" value="${address.email }"/></p>
+	    <p>Phone Number 1:<input type="text" name="phone1" value="${address.phone1}"/></p>
+	    <p>Phone Number 2:<input type="text" name="phone2" value="${address.phone2}"/></p>
+	    <p>Email Address 1:<input type="text" name="email1" value="${address.email1}"/></p>
+	    <p>Email Address 2:<input type="text" name="email2" value="${address.email2}"/></p>
 	    <input type="submit" name="next" value="Next" />
 	    <input type="submit" name="previous" value="Previous" />
 	    <input type="submit" name="cancel" value="Cancel" />

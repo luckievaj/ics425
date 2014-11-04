@@ -37,7 +37,7 @@
 			<td><%=cust.getAddress().getStreet()%></td>
 			<td><%=cust.getAddress().getCity()%></td>
 			<td><%=cust.getAddress().getState()%></td>
-			<td><%=cust.getAddress().getZip()%></td>
+			<td><%=cust.getAddress().getZipCode()%></td>
 		</tr>
 		<%
 			}

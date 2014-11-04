@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.Customer;
 /**
- * Servlet implementation class NameServlet
+ * Servlet implementation class CustomerServlet
  */
 @WebServlet("/CustomerServlet")
 public class CustomerServlet extends HttpServlet {

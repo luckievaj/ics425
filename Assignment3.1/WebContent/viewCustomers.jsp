@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page
-	import="java.util.List, com.ics425.model.Customer, com.ics425.model.Address, com.ics425.service.CustomerService"%>
+	import="java.util.List, com.abc.model.Customer, com.abc.model.Address, com.abc.service.CustomerService"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -33,11 +33,11 @@
 		<tr>
 			<td><%=cust.getFirstName()%></td>
 			<td><%=cust.getLastName()%></td>
-			<td><%=cust.getEmailAddress()%></td>
+			<td><%=cust.getEmailAddress1()%></td>
 			<td><%=cust.getAddress().getStreet()%></td>
 			<td><%=cust.getAddress().getCity()%></td>
 			<td><%=cust.getAddress().getState()%></td>
-			<td><%=cust.getAddress().getZip()%></td>
+			<td><%=cust.getAddress().getZipCode()%></td>
 		</tr>
 		<%
 			}
