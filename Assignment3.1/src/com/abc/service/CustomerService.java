@@ -102,8 +102,7 @@ public class CustomerService {
 			InitialContext ctx = new InitialContext();
 			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/ics425");
 			conn = ds.getConnection();				
-//need up update SQL call
-			String selectAll = "SELECT * FROM CUSTOMER C INNER JOIN ADDRESS A ON C.ADDRESS_ID = A.ID";
+			String selectAll = "SELECT * FROM CUSTOMER C INNER JOIN ADDRESS A ON C.ADDRESS_ID = A.ID INNER JOIN CREDENTIALS X ON C.CREDENTIALS_ID = X.ID";
 			stmt = conn.createStatement();
 			rs  = stmt.executeQuery(selectAll);
 			while (rs.next()) {

@@ -18,8 +18,6 @@ public class UserService {
 	public static void persistUser(User user) {
 		Connection conn = null;
 		PreparedStatement ps = null;
-		Statement stmt = null;
-		ResultSet rs = null;
 		try { 
 			InitialContext ctx = new InitialContext();
 			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/ics425");
@@ -34,8 +32,6 @@ public class UserService {
 			ps.setString(3, user.getUserName());
 			ps.executeUpdate();
 			//	if (true) throw new Exception();
-			stmt = conn.createStatement();
-			rs  = stmt.executeQuery("SELECT LAST_INSERT_ID()");
 			conn.commit();
 		} catch (Exception e) {
 			if (null != conn) {
