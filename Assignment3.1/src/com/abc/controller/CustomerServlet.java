@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.model.Customer;
+import com.abc.model.User;
 /**
  * Servlet implementation class CustomerServlet
  */
@@ -38,19 +38,21 @@ public class CustomerServlet extends HttpServlet {
 			forwardedPage = cancelPage;
 		} else {
 			synchronized(request.getSession() ) {
-				Customer person = (Customer) request.getSession().getAttribute("person");
+				User person = (User) request.getSession().getAttribute("person");
 				if (null == person) {
-					person = new Customer();
+					person = new User();
 					request.getSession().setAttribute("person", person);
 				}
 
 				if ("".equalsIgnoreCase(request.getParameter("firstName")) 
-						|| "".equalsIgnoreCase(request.getParameter("lastName"))) {
+						|| "".equalsIgnoreCase(request.getParameter("lastName"))
+						|| "".equalsIgnoreCase(request.getParameter("userPassword"))) {
 					request.setAttribute("message", "Please enter all fields!");
 					forwardedPage = cancelPage;
 				} else {
 					person.setFirstName(request.getParameter("firstName"));
 					person.setLastName(request.getParameter("lastName"));
+					person.setUserPassword(request.getParameter("userPassword"));
 				}            
 			}        
 			getServletContext().getRequestDispatcher(forwardedPage).

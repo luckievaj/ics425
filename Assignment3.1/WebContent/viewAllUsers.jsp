@@ -1,50 +1,42 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
 	pageEncoding="ISO-8859-1"%>
 <%@ page
-	import="java.util.List, com.abc.model.Customer, com.abc.model.Address, com.abc.service.CustomerService"%>
+	import="java.util.List,com.abc.model.User,com.abc.model.Address,com.abc.service.CustomerService"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Lab 4</title>
+<title>View All Users</title>
 </head>
 <body>
 	<%
-		List<Customer> customers = (List<Customer>) request
-				.getAttribute("customers");
-		if (null == customers) {
-			customers = CustomerService.getAllCustomers();
+		List<User> user = (List<User>) request.getAttribute("user");
+		if (null == user) {
+			user = UserService.getAllUsers();
 		}
 	%>
-	<h1>Listing of Customers</h1>
+	<h1>List of Users</h1>
 	<table>
 		<tr>
 			<td>First Name</td>
 			<td>Last Name</td>
-			<td>Email</td>
-			<td>Street</td>
-			<td>City</td>
-			<td>State</td>
-			<td>Zip</td>
-		</tr>
-		<%
-			for (Customer cust : customers) {
-		%>
+			<td>User Name</td>
+
+			<%
+				for (User user : user) {
+			%>
+		
 		<tr>
-			<td><%=cust.getFirstName()%></td>
-			<td><%=cust.getLastName()%></td>
-			<td><%=cust.getAddress().getEmail1()%></td>
-			<td><%=cust.getAddress().getStreet()%></td>
-			<td><%=cust.getAddress().getCity()%></td>
-			<td><%=cust.getAddress().getState()%></td>
-			<td><%=cust.getAddress().getZipCode()%></td>
+			<td><%=user.getFirstName()%></td>
+			<td><%=user.getLastName()%></td>
+			<td><%=user.getUserName()%></td>
 		</tr>
 		<%
 			}
 		%>
 	</table>
 	<p>
-		<a href="CreateCustomer.html">Click here to add a customer</a>
+		<a href="createUser.jsp">Click here to add a customer</a>
 	</p>
 </body>
 </html>
