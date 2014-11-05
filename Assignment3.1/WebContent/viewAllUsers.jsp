@@ -37,7 +37,7 @@
 			%>
 		</table>
 		<p>
-			<a href="createUser.jsp">Click here to add a customer</a>
+			<a href="createUser.jsp">Click here to add a user</a>
 		</p>
 	</center>
 </body>

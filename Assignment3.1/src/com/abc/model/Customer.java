@@ -5,14 +5,19 @@ public class Customer {
 	private String lastName;
 	private Address address;
 	private Credentials credentials;
-	
+	private Phone phone;
+	private Email email;
+
 	public Customer() {
 	}
-	public Customer(String firstName, String lastName, Address address, Credentials credentials) {
+	public Customer(String firstName, String lastName, Address address, Credentials credentials, Phone phone, Email email) {
 		this.firstName = firstName;
 		this.lastName = lastName;
 		this.address = address;
 		this.credentials = credentials;
+		this.phone = phone;
+		this.email = email;
+
 	}
 
 	public void setFirstName(String firstName) { this.firstName = firstName; }
@@ -23,7 +28,11 @@ public class Customer {
 	public Address getAddress(){	return address; }
 	public void setCredentials(Credentials credentials) { this.credentials = credentials;}
 	public Credentials getCredentials(){	return credentials; }	
-	
+	public void setPhone(Phone phn) { this.phone = phn;}
+	public Phone getPhone(){	return phone; }
+	public void setEmail(Email eml) { this.email = eml;}
+	public Email getEmail(){	return email; }
+
 	public boolean validate() { 
 		return (!isEmpty(firstName) && !isEmpty(lastName)); 
 	}

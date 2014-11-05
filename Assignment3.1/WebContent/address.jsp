@@ -19,14 +19,7 @@
 			City:<input type="text" name="city" value="${address.city}" />
 		</p>
 		<p>
-			State: <select name="State" size="1">
-				<option value="IA">Iowa</option>
-				<option value="MN">Minnesota</option>
-				<option value="NE">Nebraska</option>
-				<option value="ND">North Dakota</option>
-				<option value="SD">South Dakota</option>
-				<option value="WI">Wisconsin</option>
-			</select>
+			State: <input type= "text" name="state" value="${address.state}" />
 		</p>
 		<p>
 			Zip code:<input type="text" name="zipCode" value="${address.zipCode}" />

@@ -13,11 +13,11 @@
 
 		<form action="CustomerServlet" method="post">
 			<p>
-				First:<input type="text" name="firstName"
-					value="${person.firstName}" />
+				First Name:<input type="text" name="firstName"
+					value="${cust.firstName}" />
 			</p>
 			<p>
-				Last:<input type="text" name="lastName" value="${person.lastName}" />
+				Last Name:<input type="text" name="lastName" value="${cust.lastName}" />
 			</p>
 
 			<input type="submit" name="next" value="Next" /> <input

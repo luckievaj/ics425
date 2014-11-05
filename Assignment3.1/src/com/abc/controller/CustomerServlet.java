@@ -41,10 +41,10 @@ public class CustomerServlet extends HttpServlet {
 				
 //need to figure out where "Person" is defined and what to change it to
 				
-				Customer cust = (Customer) request.getSession().getAttribute("Person");
+				Customer cust = (Customer) request.getSession().getAttribute("cust");
 				if (null == cust) {
 					cust = new Customer();
-					request.getSession().setAttribute("Person", cust);
+					request.getSession().setAttribute("cust", cust);
 				}
 
 				if ("".equalsIgnoreCase(request.getParameter("firstName")) 

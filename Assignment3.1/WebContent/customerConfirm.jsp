@@ -24,10 +24,10 @@
 		<p>Email 2: ${address.email2}</p>
 
 		<h2>Credentials</h2>
-		<p>Anniversary 1 Date: ${credentials.ann_date1 }</p>
-		<p>Anniversary 1 Description: ${credentials.ann_desc1 }</p>
-		<p>Anniversary 2: ${credentials.ann_date2 }${credentials.ann_desc2 }</p>
-		<p>Anniversary 3: ${credentials.ann_date3 }${credentials.ann_desc3 }</p>
+		<p>Anniversary 1 Date: ${cred.ann_date1 }</p>
+		<p>Anniversary 1 Description: ${cred.ann_desc1 }</p>
+		<p>Anniversary 2: ${cred.ann_date2 }${cred.ann_desc2 }</p>
+		<p>Anniversary 3: ${cred.ann_date3 }${cred.ann_desc3 }</p>
 
 	</center>
 	<%
