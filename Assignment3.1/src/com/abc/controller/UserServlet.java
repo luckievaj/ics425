@@ -17,8 +17,8 @@ import com.abc.service.UserService;
 @WebServlet("/UserServlet")
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-//	private String cancelPage = "/index.jsp";
-//	private String createPage = "/userConfirm.jsp";
+	private String cancelPage = "/index.jsp";
+	private String createPage = "/userConfirm.jsp";
 
 	public UserServlet() {
 		super();
@@ -26,35 +26,43 @@ public class UserServlet extends HttpServlet {
 
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
-	throws ServletException, IOException {
+			throws ServletException, IOException {
 		doPost(request, response);
 	}
-	
-	protected void doPost(HttpServletRequest request, HttpServletResponse response) 
-	throws ServletException, IOException {
-	//Controller is tightly coupled to model and view
-		
-		//Step 1. Retrieve request parameters
-		
-		String firstName = request.getParameter("firstName");
-		String lastName = request.getParameter("lastName");
-		String userName = request.getParameter("userName");
-		
-		//Step 1a.Declarative lookup. Perform validation
-		
-		//Step 1b. Set up the model components
-		
-		User user = new User(firstName, lastName, userName);
-		
-		//Step 2. Declarative lookup. Invoke request processing component to Deal with the Model
-		UserService.persistUser(user);
-		
-		//Step 2a. Setup model for use by JSP
-		request.setAttribute("user", UserService.getAllUsers());
-		
-		//Step 3. Declarative lookup. Determine the View and Dispatch to it.
-		RequestDispatcher dispatcher =
-	 		getServletContext().getRequestDispatcher("/userConfirm.jsp");
-		dispatcher.forward(request,  response);
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String forwardedPage = createPage;
+		synchronized(request.getSession() ) {
+			User user = (User) request.getSession().getAttribute("user");
+			if (null == user) {
+				user = new User();
+				request.getSession().setAttribute("user", user);
+			}
+
+			if ("".equalsIgnoreCase(request.getParameter("firstName")) 
+					|| "".equalsIgnoreCase(request.getParameter("lastName"))
+					|| "".equalsIgnoreCase(request.getParameter("userName"))) {
+				request.setAttribute("message", "Please enter all fields!");
+				forwardedPage = cancelPage;
+			} else {
+				user.setFirstName(request.getParameter("firstName"));
+				user.setLastName(request.getParameter("lastName"));
+				user.setUserName(request.getParameter("userName"));
+
+				String firstName = request.getParameter("firstName");
+				String lastName = request.getParameter("lastName");
+				String userName = request.getParameter("userName");
+
+				User usr = new User(firstName, lastName, userName);
+
+				UserService.persistUser(usr);
+
+				request.setAttribute("usr", UserService.getAllUsers());
+			}
+
+			getServletContext().getRequestDispatcher(forwardedPage).
+			forward(request, response);
+
+		}
 	}
 }

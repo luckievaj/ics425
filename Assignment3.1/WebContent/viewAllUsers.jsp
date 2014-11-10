@@ -36,9 +36,9 @@
 				}
 			%>
 		</table>
-		<p>
-			<a href="createUser.jsp">Click here to add a user</a>
-		</p>
+<button onclick="location.href = 'index.jsp';" id="myButton" class="float-left submit-button" >Home</button>
+<button onclick="location.href = 'createUser.jsp';" id="myButton" class="float-left submit-button" >Create a New User</button>
+
 	</center>
 </body>
 </html>

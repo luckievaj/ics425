@@ -11,20 +11,14 @@
 	<center>
 		<h1>Create a New User</h1>
 		<form action="UserServlet" method="post">
-			<p>
-				First:<input type="text" name="firstName" value="${user.firstName}" />
-			</p>
-			<p>
-				Last:<input type="text" name="lastName" value="${user.lastName}" />
-			</p>
-			<p>
-				User Name:<input type="text" name="userName"
-					value="${user.userName}" />
-			</p>
-
-			<input type="submit" name="create" value="Create" /> <input
-				type="submit" name="cancel" value="Cancel" />
-		</form>
+        <p>First:<input type="text" name="firstName" value="${user.firstName}" /></p>
+        <p>Last:<input type="text" name="lastName" value="${user.lastName}" /></p>
+        <p>User Name:<input type="text" name="userName" value="${user.userName}" /></p>
+        
+                
+        <input type="submit" name="create" value="Create" />
+        <input type="submit" name="cancel" value="Cancel" />        
+    </form>
 	</center>
 </body>
 </html>
