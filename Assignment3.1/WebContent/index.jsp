@@ -20,7 +20,7 @@
 		<form action="viewAllCustomers.jsp" method="post">
 			<br /> <br /> <input type="submit" value="View All Customers">
 		</form>
-		<form action="customer.jsp" method="post">
+		<form action="createCustomer.jsp" method="post">
 			<br /> <br /> <input type="submit" value="Create a New Customer">
 		</form>
 

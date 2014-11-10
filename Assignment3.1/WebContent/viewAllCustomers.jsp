@@ -22,21 +22,7 @@
 			<tr>
 				<td>First Name</td>
 				<td>Last Name</td>
-				<td>Email</td>
-				<td>Street</td>
-				<td>City</td>
-				<td>State</td>
-				<td>Zip Code</td>
-				<td>Phone 1</td>
-				<td>Phone 2</td>
-				<td>Email 1</td>
-				<td>Email 2</td>
-				<td>Anniversary Date 1</td>
-				<td>Anniversary Description 1</td>
-				<td>Anniversary Date 2</td>
-				<td>Anniversary Description 2</td>
-				<td>Anniversary Date 3</td>
-				<td>Anniversary Description 3</td>
+				<td>Edit Customer Options</td>
 
 			</tr>
 			<%
@@ -45,31 +31,24 @@
 			<tr>
 				<td><%=cust.getFirstName()%></td>
 				<td><%=cust.getLastName()%></td>
-				<td><%=cust.getAddress().getEmail1()%></td>
-				<td><%=cust.getAddress().getEmail2()%></td>
-				<td><%=cust.getAddress().getPhone1()%></td>
-				<td><%=cust.getAddress().getPhone2()%></td>
-				<td><%=cust.getAddress().getStreet()%></td>
-				<td><%=cust.getAddress().getCity()%></td>
-				<td><%=cust.getAddress().getState()%></td>
-				<td><%=cust.getAddress().getZipCode()%></td>
-				<td><%=cust.getAddress().getPhone1()%></td>
-				<td><%=cust.getAddress().getPhone2()%></td>
-				<td><%=cust.getAddress().getEmail1()%></td>
-				<td><%=cust.getAddress().getEmail2()%></td>
-				<td><%=cust.getCredentials().getAnn_Date1()%></td>
-				<td><%=cust.getCredentials().getAnn_Desc1()%></td>
-				<td><%=cust.getCredentials().getAnn_Date2()%></td>
-				<td><%=cust.getCredentials().getAnn_Desc2()%></td>
-				<td><%=cust.getCredentials().getAnn_Date3()%></td>
-				<td><%=cust.getCredentials().getAnn_Desc3()%></td>
+				<td><form action="viewCustomer.jsp" method="post"><input type="submit" value="View"></form></td>
+				<td><form action="editCustomer.jsp" method="post"><input type="submit" value="Edit"></form></td>
+				<td><form action="deleteCustomer.jsp" method="post"><input type="submit" value="Delete"></form></td>
 			</tr>
 			<%
 				}
 			%>
 		</table>
+		<!--	//how to identify which user you're passing thorough. 
+				//link with customer variables  - getContactID to pass id to each button (edit, view, delete)
+				
+				//edit by turning these to input 
+				
+				//delete ps. execute update
+				//utilize table joins and remember to delete foreign key  from join tables first, then use that reference to delete the secondary table. customer is eventualy last. 
+			  -->
 		<p>
-			<a href="customer.jsp">Click here to add a customer</a>
+			<a href="createCustomer.jsp">Click here to add a customer</a>
 		</p>
 	</center>
 </body>

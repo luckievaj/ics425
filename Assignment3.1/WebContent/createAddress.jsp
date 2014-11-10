@@ -40,9 +40,9 @@
 			Email Address 2:<input type="text" name="email2"
 				value="${address.email2}" />
 		</p>
-		<input type="submit" name="next" value="Next" /> <input type="submit"
-			name="previous" value="Previous" /> <input type="submit"
-			name="cancel" value="Cancel" />
+		<input type="submit" name="next" value="Next" /> 
+		<input type="submit" name="previous" value="Previous" /> 
+		<input type="submit" name="cancel" value="Cancel" />
 	</form>
 	<!-- test test -->
 </body>

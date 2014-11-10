@@ -16,7 +16,7 @@ import com.abc.model.Customer;
 public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-	private String nextPage = "/address.jsp";
+	private String nextPage = "/createAddress.jsp";
 
 	public CustomerServlet() {
 		super();

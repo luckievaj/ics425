@@ -18,6 +18,8 @@ public class UserService {
 	public static void persistUser(User user) {
 		Connection conn = null;
 		PreparedStatement ps = null;
+		Statement stmt = null;
+		ResultSet rs = null;
 		try { 
 			InitialContext ctx = new InitialContext();
 			DataSource ds = (DataSource)ctx.lookup("java:comp/env/jdbc/ics425");
@@ -25,13 +27,25 @@ public class UserService {
 			conn.setAutoCommit(false);
 			String userInsert = 
 					"INSERT INTO USER (FIRST_NAME, LAST_NAME, USER_NAME) VALUES (?, ?, ?)";
-
+			
 			ps = conn.prepareStatement(userInsert);
 			ps.setString(1, user.getFirstName());
 			ps.setString(2, user.getLastName());
 			ps.setString(3, user.getUserName());
 			ps.executeUpdate();
+			
 			//	if (true) throw new Exception();
+			stmt = conn.createStatement();
+			rs  = stmt.executeQuery("SELECT LAST_INSERT_ID()");
+			if (rs.next()) {
+//				ps = conn.prepareStatement(userInsert);
+//				ps.setString(1, user.getFirstName());
+//				ps.setString(2, user.getLastName());
+//				ps.setString(3, user.getUserName());
+//				ps.executeUpdate();
+			} else {
+				throw new IllegalStateException("Unable to retrieve last insert id");
+			}
 			conn.commit();
 		} catch (Exception e) {
 			if (null != conn) {

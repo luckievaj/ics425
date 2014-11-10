@@ -14,7 +14,7 @@ import com.abc.model.Credentials;
 public class CredentialsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-    private String previousPage = "/address.jsp";
+    private String previousPage = "/createAddress.jsp";
     private String nextPage = "/customerConfirm.jsp";
 
     public CredentialsServlet() {
