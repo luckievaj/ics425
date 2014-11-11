@@ -11,21 +11,19 @@
 	<center>
 		<h1>New Customer details Confirmation</h1>
 		<h2>Name</h2>
-		<p>${person.firstName}${person.lastName}</p>
+		<p>${customer.firstName}${customer.lastName}</p>
 
 		<h2>Address</h2>
 		<p>Street: ${address.street}</p>
 		<p>City:${address.city}</p>
 		<p>State: ${address.state}</p>
 		<p>Zip Code: ${address.zipCode}</p>
-		<p>Phone 1: ${address.phone1}</p>
-		<p>Phone 2: ${address.phone2}</p>
-		<p>Email 1: ${address.email1}</p>
-		<p>Email 2: ${address.email2}</p>
-
+		<p>Phone 1: ${phone.phone1}</p>
+		<p>Phone 2: ${phone.phone2}</p>
+		<p>Email 1: ${email.email1}</p>
+		<p>Email 2: ${email.email2}</p>
 		<h2>Credentials</h2>
-		<p>Anniversary 1 Date: ${cred.ann_date1 }</p>
-		<p>Anniversary 1 Description: ${cred.ann_desc1 }</p>
+		<p>Anniversary 1: ${cred.ann_date1 }${cred.ann_desc1 }</p>
 		<p>Anniversary 2: ${cred.ann_date2 }${cred.ann_desc2 }</p>
 		<p>Anniversary 3: ${cred.ann_date3 }${cred.ann_desc3 }</p>
 
@@ -33,5 +31,11 @@
 	<%
 		session.invalidate();
 	%>
+
+	<button onclick="location.href = 'index.jsp';" id="homeButton"
+		class="float-left submit-button">Home</button>
+	<button onclick="location.href = 'customerViewAll.jsp';" id="cviewButton"
+		class="float-left submit-button">View All Customers</button>
+
 </body>
 </html>

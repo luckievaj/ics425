@@ -11,28 +11,19 @@
 		<h1>Database Management Console</h1>
 
 
-		<form action="viewAllUsers.jsp" method="post">
+		<form action="userViewAll.jsp" method="post">
 			<br /> <br /> <input type="submit" value="View All Users">
 		</form>
-		<form action="createUser.jsp" method="post">
+		<form action="userCreate.jsp" method="post">
 			<br /> <br /> <input type="submit" value="Create a New User">
 		</form>
-		<form action="viewAllCustomers.jsp" method="post">
+		<form action="customerViewAll.jsp" method="post">
 			<br /> <br /> <input type="submit" value="View All Customers">
 		</form>
-		<form action="createCustomer.jsp" method="post">
+		<form action="customerCreate.jsp" method="post">
 			<br /> <br /> <input type="submit" value="Create a New Customer">
 		</form>
 
-		<!-- <form method="get">
-<button type="button"
-onclick="viewAllUsers.jsp">View All Users</button>
-<button type="button"
-onclick="createUser.jsp">Create a new User</button>
-<button type="button"
-onclick="viewAllCustomer.jsp">View All Customers</button>
-<button type="button"
-onclick="name.jsp">Create a new Customer</button> -->
 	</center>
 	</form>
 </body>

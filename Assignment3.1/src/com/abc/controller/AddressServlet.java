@@ -14,8 +14,8 @@ import com.abc.model.Address;
 public class AddressServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-    private String previousPage = "/createCustomer.jsp";
-    private String nextPage = "/createCredentials.jsp";
+    private String previousPage = "/customerCreate.jsp";
+    private String nextPage = "/customerPhone.jsp";
 
     public AddressServlet() {
         super();

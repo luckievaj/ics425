@@ -53,11 +53,11 @@ public class UserServlet extends HttpServlet {
 				String lastName = request.getParameter("lastName");
 				String userName = request.getParameter("userName");
 
-				User usr = new User(firstName, lastName, userName);
-
-				UserService.persistUser(usr);
-
-				request.setAttribute("usr", UserService.getAllUsers());
+//				User usr = new User(firstName, lastName, userName);
+//
+//				UserService.persistUser(usr);
+//
+//				request.setAttribute("usr", UserService.getAllUsers());
 			}
 
 			getServletContext().getRequestDispatcher(forwardedPage).

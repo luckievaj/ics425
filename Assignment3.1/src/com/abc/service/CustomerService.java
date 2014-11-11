@@ -34,7 +34,8 @@ public class CustomerService {
 			String customerInsert = 
 					"INSERT INTO CUSTOMER (FIRST_NAME, LAST_NAME) VALUES (?, ?)";
 			String addressInsert = 
-					"INSERT INTO ADDRESS (STREET, CITY, STATE, ZIPCODE, CUSTOMER_ID) VALUES (?, ?, ?, ?, ?)";
+					"INSERT INTO ADDRESS (STREET, CITY, STATE, ZIPCODE, CUSTOMER_ID"
+					+ "[pk  dsfaIUGHFXZ) VALUES (?, ?, ?, ?, ?)";
 			String credentialsInsert = 
 					"INSERT INTO CREDENTIALS (ANN_DATE1, ANN_DESC1, ANN_DATE2, ANN_DESC2, ANN_DATE3, ANN_DESC3, CUSTOMER_ID) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			String phoneInsert =
@@ -73,6 +74,8 @@ public class CustomerService {
 				ps.setString(5,  cred.getAnn_Date3());
 				ps.setString(6,  cred.getAnn_Desc3());
 				ps.setInt(7, i);
+				ps.executeUpdate();
+
 				
 				Phone phn = customer.getPhone();
 				
@@ -80,6 +83,8 @@ public class CustomerService {
 				ps.setString(1,  phn.getPhone1());
 				ps.setString(2,  phn.getPhone2());
 				ps.setInt(3, i);
+				ps.executeUpdate();
+
 				
 				Email eml = customer.getEmail();
 				
@@ -87,6 +92,8 @@ public class CustomerService {
 				ps.setString(1,  eml.getEmail1());
 				ps.setString(2,  eml.getEmail2());
 				ps.setInt(3, i);
+				ps.executeUpdate();
+
 
 			} else {
 				throw new IllegalStateException("Unable to retrieve last insert id");

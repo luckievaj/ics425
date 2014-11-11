@@ -10,7 +10,7 @@
 </head>
 <body>
 	<center>
-	<h1>List of All Users</h1>
+		<h1>List of All Users</h1>
 		<%
 			List<User> user = (List<User>) request.getAttribute("user");
 			if (null == user) {
@@ -36,8 +36,10 @@
 				}
 			%>
 		</table>
-<button onclick="location.href = 'index.jsp';" id="myButton" class="float-left submit-button" >Home</button>
-<button onclick="location.href = 'createUser.jsp';" id="myButton" class="float-left submit-button" >Create a New User</button>
+		<button onclick="location.href = 'index.jsp';" id="home"
+			class="float-left submit-button">Home</button>
+		<button onclick="location.href = 'userCreate.jsp';" id="userCreate"
+			class="float-left submit-button">Create a New User</button>
 
 	</center>
 </body>

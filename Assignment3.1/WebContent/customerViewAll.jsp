@@ -22,7 +22,6 @@
 			<tr>
 				<td>First Name</td>
 				<td>Last Name</td>
-				<td>Edit Customer Options</td>
 
 			</tr>
 			<%
@@ -31,9 +30,15 @@
 			<tr>
 				<td><%=cust.getFirstName()%></td>
 				<td><%=cust.getLastName()%></td>
-				<td><form action="viewCustomer.jsp" method="post"><input type="submit" value="View"></form></td>
-				<td><form action="editCustomer.jsp" method="post"><input type="submit" value="Edit"></form></td>
-				<td><form action="deleteCustomer.jsp" method="post"><input type="submit" value="Delete"></form></td>
+				<td><form action="customerDetail.jsp" method="post">
+						<input type="submit" value="View">
+					</form></td>
+				<td><form action="customerEdit.jsp" method="post">
+						<input type="submit" value="Edit">
+					</form></td>
+				<td><form action="customerDelete.jsp" method="post">
+						<input type="submit" value="Delete">
+					</form></td>
 			</tr>
 			<%
 				}
@@ -47,9 +52,14 @@
 				//delete ps. execute update
 				//utilize table joins and remember to delete foreign key  from join tables first, then use that reference to delete the secondary table. customer is eventualy last. 
 			  -->
-		<p>
-			<a href="createCustomer.jsp">Click here to add a customer</a>
-		</p>
+<!-- 		<p>
+			<a href="customerCreate.jsp">Click here to add a customer</a>
+		</p> -->
+		<button onclick="location.href = 'index.jsp';" id="homeButton"
+			class="float-left submit-button">Home</button>
+		<button onclick="location.href = 'customerCreate.jsp';"
+			id="ccreateButton" class="float-left submit-button">Create a New
+			Customers</button>
 	</center>
 </body>
 </html>

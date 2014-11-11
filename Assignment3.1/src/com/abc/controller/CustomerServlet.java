@@ -9,6 +9,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.Customer;
+import com.abc.model.User;
+import com.abc.service.CustomerService;
+import com.abc.service.UserService;
 /**
  * Servlet implementation class CustomerServlet
  */
@@ -38,9 +41,7 @@ public class CustomerServlet extends HttpServlet {
 			forwardedPage = cancelPage;
 		} else {
 			synchronized(request.getSession() ) {
-				
-//need to figure out where "Person" is defined and what to change it to
-				
+								
 				Customer cust = (Customer) request.getSession().getAttribute("cust");
 				if (null == cust) {
 					cust = new Customer();
@@ -54,6 +55,12 @@ public class CustomerServlet extends HttpServlet {
 				} else {
 					cust.setFirstName(request.getParameter("firstName"));
 					cust.setLastName(request.getParameter("lastName"));
+					
+					Customer customer = new Customer();
+
+					CustomerService.persistCustomer(customer);
+
+					request.setAttribute("customer", CustomerService.getAllCustomers());
 				}            
 			}        
 			getServletContext().getRequestDispatcher(forwardedPage).
