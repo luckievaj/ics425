@@ -1,12 +1,17 @@
 package com.abc.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.abc.model.Credentials;
+import com.abc.model.Customer;
+import com.abc.service.CredentialsService;
+import com.abc.service.CustomerService;
 /**
  * Servlet implementation class CredentialsServlet
  */
@@ -14,7 +19,7 @@ import com.abc.model.Credentials;
 public class CredentialsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-    private String previousPage = "/createAddress.jsp";
+    private String previousPage = "/customerAddress.jsp";
     private String nextPage = "/customerConfirm.jsp";
 
     public CredentialsServlet() {
@@ -37,17 +42,31 @@ public class CredentialsServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Credentials credentials = (Credentials) request.getSession().getAttribute("credentials");            
-                if (null == credentials) {
-                	credentials = new Credentials();
-                    request.getSession().setAttribute("credentials", credentials);
+                Credentials cred = (Credentials) request.getSession().getAttribute("credentials");            
+                if (null == cred) {
+                	cred = new Credentials();
+                    request.getSession().setAttribute("credentials", cred);
                 }
-                credentials.setAnn_Date1(request.getParameter("ann_date1"));
-                credentials.setAnn_Desc1(request.getParameter("ann_desc1"));
-                credentials.setAnn_Date2(request.getParameter("ann_date2"));
-                credentials.setAnn_Desc2(request.getParameter("ann_desc2"));
-                credentials.setAnn_Date3(request.getParameter("ann_date3"));
-                credentials.setAnn_Desc3(request.getParameter("ann_desc3"));
+                cred.setAnnDate1(request.getParameter("annDate1"));
+                cred.setAnnDesc1(request.getParameter("annDesc1"));
+                cred.setAnnDate2(request.getParameter("annDate2"));
+                cred.setAnnDesc2(request.getParameter("annDesc2"));
+                cred.setAnnDate3(request.getParameter("annDate3"));
+                cred.setAnnDesc3(request.getParameter("annDesc3"));
+                
+                String annDate1 = request.getParameter("annDate1");
+                String annDesc1 = request.getParameter("annDesc1");
+                String annDate2 = request.getParameter("annDate2");
+                String annDesc2 = request.getParameter("annDesc2");               
+                String annDate3 = request.getParameter("annDate3");
+                String annDesc3 = request.getParameter("annDesc3");              
+                
+				Credentials credentials = new Credentials(annDate1, annDesc1, annDate2, annDesc2, annDate3, annDesc3);
+
+				CredentialsService.persistCredentials(credentials);
+
+				request.setAttribute("credentials", CustomerService.getAllCustomers());
+                
             }        
         }
         getServletContext().getRequestDispatcher(forwardedPage).

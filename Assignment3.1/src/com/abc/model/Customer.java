@@ -26,7 +26,7 @@ public class Customer {
 	public String getLastName() { return lastName; }
 	public void setAddress(Address addr) { this.address = addr;}
 	public Address getAddress(){	return address; }
-	public void setCredentials(Credentials credentials) { this.credentials = credentials;}
+	public void setCredentials(Credentials cred) { this.credentials = cred;}
 	public Credentials getCredentials(){	return credentials; }	
 	public void setPhone(Phone phn) { this.phone = phn;}
 	public Phone getPhone(){	return phone; }

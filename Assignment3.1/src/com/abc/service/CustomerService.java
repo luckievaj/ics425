@@ -21,7 +21,7 @@ public class CustomerService {
 
 	@SuppressWarnings("resource")
 	public static void persistCustomer(Customer customer) {
-//	public static void persistCustomer(Customer customer, Address address, Credentials credentials, Phone phone, Email email) {
+//	public static void persistCustomer(Customer customer, Address address, Phone phone, Email email, Credentials credentials) {
 		Connection conn = null;
 		PreparedStatement ps = null;
 		Statement stmt = null;
@@ -33,15 +33,14 @@ public class CustomerService {
 			conn.setAutoCommit(false);
 			String customerInsert = 
 					"INSERT INTO CUSTOMER (FIRST_NAME, LAST_NAME) VALUES (?, ?)";
-			String addressInsert = 
-					"INSERT INTO ADDRESS (STREET, CITY, STATE, ZIPCODE, CUSTOMER_ID"
-					+ "[pk  dsfaIUGHFXZ) VALUES (?, ?, ?, ?, ?)";
-			String credentialsInsert = 
-					"INSERT INTO CREDENTIALS (ANN_DATE1, ANN_DESC1, ANN_DATE2, ANN_DESC2, ANN_DATE3, ANN_DESC3, CUSTOMER_ID) VALUES (?, ?, ?, ?, ?, ?, ?)";
-			String phoneInsert =
-					"INSERT INTO PHONE (PHONE1, PHONE2, CUSTOMER_ID) VALUE (?, ?, ?)";
-			String emailInsert =
-					"INSERT INTO EMAIL (EMAIL1, EMAIL2, CUSTOMER_ID) VALUE (?, ?, ?)";
+//			String addressInsert = 
+//					"INSERT INTO ADDRESS (STREET, CITY, STATE, ZIPCODE, CUSTOMER_ID VALUES (?, ?, ?, ?, ?)";
+//			String phoneInsert =
+//					"INSERT INTO PHONE (PHONE1, PHONE2, CUSTOMER_ID) VALUE (?, ?, ?)";
+//			String emailInsert =
+//					"INSERT INTO EMAIL (EMAIL1, EMAIL2, CUSTOMER_ID) VALUE (?, ?, ?)";
+//			String credentialsInsert = 
+//					"INSERT INTO CREDENTIALS (ANN_DATE1, ANN_DESC1, ANN_DATE2, ANN_DESC2, ANN_DATE3, ANN_DESC3, CUSTOMER_ID) VALUES (?, ?, ?, ?, ?, ?, ?)";
 			
 			ps = conn.prepareStatement(customerInsert);
 			ps.setString(1, customer.getFirstName());
@@ -52,47 +51,47 @@ public class CustomerService {
 			stmt = conn.createStatement();
 			rs  = stmt.executeQuery("SELECT LAST_INSERT_ID()");
 			if (rs.next()) {
-				int i = rs.getInt(1);
-				
-				Address addr = customer.getAddress();
-
-				ps = conn.prepareStatement(addressInsert);
-				ps.setString(1, addr.getStreet());
-				ps.setString(2, addr.getCity());
-				ps.setString(3, addr.getState());
-				ps.setString(4, addr.getZipCode());
-				ps.setInt(5, i);
-				ps.executeUpdate();
-				
-				Credentials cred = customer.getCredentials();
-				
-				ps = conn.prepareStatement(credentialsInsert);
-				ps.setString(1,  cred.getAnn_Date1());
-				ps.setString(2,  cred.getAnn_Desc1());
-				ps.setString(3,  cred.getAnn_Date2());
-				ps.setString(4,  cred.getAnn_Desc2());
-				ps.setString(5,  cred.getAnn_Date3());
-				ps.setString(6,  cred.getAnn_Desc3());
-				ps.setInt(7, i);
-				ps.executeUpdate();
-
-				
-				Phone phn = customer.getPhone();
-				
-				ps = conn.prepareStatement(phoneInsert);
-				ps.setString(1,  phn.getPhone1());
-				ps.setString(2,  phn.getPhone2());
-				ps.setInt(3, i);
-				ps.executeUpdate();
-
-				
-				Email eml = customer.getEmail();
-				
-				ps = conn.prepareStatement(emailInsert);
-				ps.setString(1,  eml.getEmail1());
-				ps.setString(2,  eml.getEmail2());
-				ps.setInt(3, i);
-				ps.executeUpdate();
+//				int i = rs.getInt(1);
+//				
+//				Address addr = customer.getAddress();
+//
+//				ps = conn.prepareStatement(addressInsert);
+//				ps.setString(1, addr.getStreet());
+//				ps.setString(2, addr.getCity());
+//				ps.setString(3, addr.getState());
+//				ps.setString(4, addr.getZipCode());
+//				ps.setInt(5, i);
+//				ps.executeUpdate();
+//				
+//				
+//				Phone phn = customer.getPhone();
+//				
+//				ps = conn.prepareStatement(phoneInsert);
+//				ps.setString(1,  phn.getPhone1());
+//				ps.setString(2,  phn.getPhone2());
+//				ps.setInt(3, i);
+//				ps.executeUpdate();
+//
+//				
+//				Email eml = customer.getEmail();
+//				
+//				ps = conn.prepareStatement(emailInsert);
+//				ps.setString(1,  eml.getEmail1());
+//				ps.setString(2,  eml.getEmail2());
+//				ps.setInt(3, i);
+//				ps.executeUpdate();
+//
+//				Credentials cred = customer.getCredentials();
+//				
+//				ps = conn.prepareStatement(credentialsInsert);
+//				ps.setString(1,  cred.getAnnDate1());
+//				ps.setString(2,  cred.getAnnDate1());
+//				ps.setString(3,  cred.getAnnDate2());
+//				ps.setString(4,  cred.getAnnDate2());
+//				ps.setString(5,  cred.getAnnDate3());
+//				ps.setString(6,  cred.getAnnDate3());
+//				ps.setInt(7, i);
+//				ps.executeUpdate();
 
 
 			} else {
@@ -138,32 +137,9 @@ public class CustomerService {
 			stmt = conn.createStatement();
 			rs  = stmt.executeQuery(selectAll);
 			while (rs.next()) {
-//				Address addr  = new Address();
-				Customer cust = new Customer();
-//				Credentials cred = new Credentials();
-//				Phone phone = new Phone();
-//				Email email = new Email();
-				
+				Customer cust = new Customer();				
 				cust.setFirstName(rs.getString("FIRST_NAME"));
 				cust.setLastName(rs.getString("LAST_NAME"));
-//				addr.setStreet(rs.getString("STREET"));
-//				addr.setCity(rs.getString("CITY"));
-//				addr.setState(rs.getString("STATE"));
-//				addr.setZipCode(rs.getString("ZIPCODE"));
-//				cred.setAnn_Date1(rs.getString("ANN_DATE1"));
-//				cred.setAnn_Desc1(rs.getString("ANN_DESC1"));
-//				cred.setAnn_Date2(rs.getString("ANN_DATE2"));
-//				cred.setAnn_Desc2(rs.getString("ANN_DESC2"));
-//				cred.setAnn_Date3(rs.getString("ANN_DATE3"));
-//				cred.setAnn_Desc3(rs.getString("ANN_DESC3"));
-//				phone.setPhone1(rs.getString("PHONE1"));
-//				phone.setPhone2(rs.getString("PHONE2"));
-//				email.setEmail1(rs.getString("EMAIL1"));
-//				email.setEmail2(rs.getString("EMAIL2"));
-//				cust.setAddress(addr);
-//				cust.setCredentials(cred);
-//				cust.setPhone(phone);
-//				cust.setEmail(email);
 				custList.add(cust);
 			}			
 		} catch (Exception e) {
@@ -206,7 +182,6 @@ public class CustomerService {
 				Customer cust = new Customer();
 				Credentials cred = new Credentials();
 				Phone phone = new Phone();
-	
 				Email email = new Email();
 				
 				cust.setFirstName(rs.getString("FIRST_NAME"));
@@ -215,12 +190,12 @@ public class CustomerService {
 				addr.setCity(rs.getString("CITY"));
 				addr.setState(rs.getString("STATE"));
 				addr.setZipCode(rs.getString("ZIPCODE"));
-				cred.setAnn_Date1(rs.getString("ANN_DATE1"));
-				cred.setAnn_Desc1(rs.getString("ANN_DESC1"));
-				cred.setAnn_Date2(rs.getString("ANN_DATE2"));
-				cred.setAnn_Desc2(rs.getString("ANN_DESC2"));
-				cred.setAnn_Date3(rs.getString("ANN_DATE3"));
-				cred.setAnn_Desc3(rs.getString("ANN_DESC3"));
+				cred.setAnnDate1(rs.getString("ANN_DATE1"));
+				cred.setAnnDate1(rs.getString("ANN_DESC1"));
+				cred.setAnnDate2(rs.getString("ANN_DATE2"));
+				cred.setAnnDate2(rs.getString("ANN_DESC2"));
+				cred.setAnnDate3(rs.getString("ANN_DATE3"));
+				cred.setAnnDate3(rs.getString("ANN_DESC3"));
 				phone.setPhone1(rs.getString("PHONE1"));
 				phone.setPhone2(rs.getString("PHONE2"));
 				email.setEmail1(rs.getString("EMAIL1"));

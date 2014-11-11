@@ -17,7 +17,8 @@
 					value="${cust.firstName}" />
 			</p>
 			<p>
-				Last Name:<input type="text" name="lastName" value="${cust.lastName}" />
+				Last Name:<input type="text" name="lastName"
+					value="${cust.lastName}" />
 			</p>
 
 			<input type="submit" name="next" value="Next" /> <input

@@ -19,7 +19,7 @@ import com.abc.service.UserService;
 public class CustomerServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-	private String nextPage = "/createAddress.jsp";
+	private String nextPage = "/customerAddress.jsp";
 
 	public CustomerServlet() {
 		super();
@@ -56,7 +56,10 @@ public class CustomerServlet extends HttpServlet {
 					cust.setFirstName(request.getParameter("firstName"));
 					cust.setLastName(request.getParameter("lastName"));
 					
-					Customer customer = new Customer();
+					String firstName = request.getParameter("firstName");
+					String lastName = request.getParameter("lastName");
+					
+					Customer customer = new Customer(firstName, lastName, null, null, null, null);
 
 					CustomerService.persistCustomer(customer);
 

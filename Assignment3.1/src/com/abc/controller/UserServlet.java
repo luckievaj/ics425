@@ -49,15 +49,16 @@ public class UserServlet extends HttpServlet {
 				user.setLastName(request.getParameter("lastName"));
 				user.setUserName(request.getParameter("userName"));
 
+				//Method to pass collected information to the Service to write to the DB.
 				String firstName = request.getParameter("firstName");
 				String lastName = request.getParameter("lastName");
 				String userName = request.getParameter("userName");
 
-//				User usr = new User(firstName, lastName, userName);
-//
-//				UserService.persistUser(usr);
-//
-//				request.setAttribute("usr", UserService.getAllUsers());
+				User usr = new User(firstName, lastName, userName);
+
+				UserService.persistUser(usr);
+
+				request.setAttribute("usr", UserService.getAllUsers());
 			}
 
 			getServletContext().getRequestDispatcher(forwardedPage).
