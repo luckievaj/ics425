@@ -13,16 +13,16 @@
 	<h2>Enter Address</h2>
 	<form action="AddressServlet" method="post">
 		<p>
-			Street:<input type="text" name="street" value="${address.street}" />
+			Street:<input type="text" name="street" value="${add.street}" />
 		</p>
 		<p>
-			City:<input type="text" name="city" value="${address.city}" />
+			City:<input type="text" name="city" value="${add.city}" />
 		</p>
 		<p>
-			State: <input type="text" name="state" value="${address.state}" />
+			State: <input type="text" name="state" value="${add.state}" />
 		</p>
 		<p>
-			Zip Code:<input type="text" name="zipCode" value="${address.zipCode}" />
+			Zip Code:<input type="text" name="zipCode" value="${add.zipCode}" />
 		</p>
 		<input type="submit" name="next" value="Next" /> <input type="submit"
 			name="previous" value="Previous" /> <input type="submit"

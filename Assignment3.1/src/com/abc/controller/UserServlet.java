@@ -2,7 +2,6 @@ package com.abc.controller;
 
 import java.io.IOException;
 
-import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,12 +17,11 @@ import com.abc.service.UserService;
 public class UserServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-	private String createPage = "/userConfirm.jsp";
+	private String nextPage = "/userConfirm.jsp";
 
 	public UserServlet() {
 		super();
 	}
-
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
@@ -31,7 +29,7 @@ public class UserServlet extends HttpServlet {
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		String forwardedPage = createPage;
+		String forwardedPage = nextPage;
 		synchronized(request.getSession() ) {
 			User user = (User) request.getSession().getAttribute("user");
 			if (null == user) {
@@ -54,9 +52,9 @@ public class UserServlet extends HttpServlet {
 				String lastName = request.getParameter("lastName");
 				String userName = request.getParameter("userName");
 
-				User usr = new User(firstName, lastName, userName);
+				user = new User(firstName, lastName, userName);
 
-				UserService.persistUser(usr);
+				UserService.persistUser(user);
 
 				request.setAttribute("usr", UserService.getAllUsers());
 			}

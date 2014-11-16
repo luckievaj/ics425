@@ -9,9 +9,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.Customer;
-import com.abc.model.User;
 import com.abc.service.CustomerService;
-import com.abc.service.UserService;
 /**
  * Servlet implementation class CustomerServlet
  */
@@ -25,7 +23,6 @@ public class CustomerServlet extends HttpServlet {
 		super();
 	}
 
-
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) 
 			throws ServletException, IOException {
 		doPost(request, response);
@@ -36,34 +33,37 @@ public class CustomerServlet extends HttpServlet {
 		boolean cancel = (request.getParameter("cancel") != null);
 		String forwardedPage = 
 				(next ? nextPage : (cancelPage));
+		
 		if (cancel) {
+			
 			request.getSession().invalidate();
 			forwardedPage = cancelPage;
+			
 		} else {
+			
+			//Sync with the current session data
 			synchronized(request.getSession() ) {
-								
-				Customer cust = (Customer) request.getSession().getAttribute("cust");
-				if (null == cust) {
-					cust = new Customer();
-					request.getSession().setAttribute("cust", cust);
+				
+				//get the attributes of the session variable "cust"
+				Customer customer = (Customer) request.getSession().getAttribute("cust");
+				if (null == customer) {
+					customer = new Customer();
+					request.getSession().setAttribute("cust", customer);
 				}
-
+				
+				//Validation on the retrieved variables
 				if ("".equalsIgnoreCase(request.getParameter("firstName")) 
 						|| "".equalsIgnoreCase(request.getParameter("lastName"))) {
 					request.setAttribute("message", "Please enter all fields!");
 					forwardedPage = cancelPage;
+					
 				} else {
-					cust.setFirstName(request.getParameter("firstName"));
-					cust.setLastName(request.getParameter("lastName"));
 					
-					String firstName = request.getParameter("firstName");
-					String lastName = request.getParameter("lastName");
+					//Pass the variables via the "customer" object to the method persistCustomer()
+					customer.setFirstName((String)request.getParameter("firstName"));
+					customer.setLastName((String)request.getParameter("lastName"));
 					
-					Customer customer = new Customer(firstName, lastName, null, null, null, null);
-
 					CustomerService.persistCustomer(customer);
-
-					request.setAttribute("customer", CustomerService.getAllCustomers());
 				}            
 			}        
 			getServletContext().getRequestDispatcher(forwardedPage).

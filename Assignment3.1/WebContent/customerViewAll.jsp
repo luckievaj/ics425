@@ -30,7 +30,7 @@
 			<tr>
 				<td><%=cust.getFirstName()%></td>
 				<td><%=cust.getLastName()%></td>
-				<td><form action="customerDetail.jsp" method="post">
+				<td><form action="customerDetail.jsp" method="post"> 
 						<input type="submit" value="View">
 					</form></td>
 				<td><form action="customerEdit.jsp" method="post">
@@ -40,6 +40,7 @@
 						<input type="submit" value="Delete">
 					</form></td>
 			</tr>
+			<%-- value=<%= cust.getCustomerID %> --%>
 			<%
 				}
 			%>

@@ -38,11 +38,7 @@ public class UserService {
 			stmt = conn.createStatement();
 			rs  = stmt.executeQuery("SELECT LAST_INSERT_ID()");
 			if (rs.next()) {
-//				ps = conn.prepareStatement(userInsert);
-//				ps.setString(1, user.getFirstName());
-//				ps.setString(2, user.getLastName());
-//				ps.setString(3, user.getUserName());
-//				ps.executeUpdate();
+
 			} else {
 				throw new IllegalStateException("Unable to retrieve last insert id");
 			}
