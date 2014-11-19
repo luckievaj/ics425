@@ -1,15 +1,12 @@
 package com.abc.controller;
 
 import java.io.IOException;
-
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 import com.abc.model.Address;
-import com.abc.service.CustomerService;
 /**
  * Servlet implementation class AddressServlet
  */
@@ -24,6 +21,7 @@ public class AddressServlet extends HttpServlet {
         super();
     }
     
+
 	/**
 	 * @see HttpServlet#doGet(HttpServletRequest request, HttpServletResponse response)
 	 */
@@ -42,18 +40,20 @@ public class AddressServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Address address = (Address) request.getSession().getAttribute("add");            
+                Address address = (Address) request.getSession().getAttribute("address");            
                 if (null == address) {
                     address = new Address();
-                    request.getSession().setAttribute("add", address);
+                    request.getSession().setAttribute("address", address);
                 }    
-                address.setStreet((String)request.getParameter("street"));
-                address.setCity((String)request.getParameter("city"));
-                address.setState((String)request.getParameter("state"));
-                address.setZipCode((String)request.getParameter("zipCode"));
-                
-				CustomerService.persistAddress(address);
-                
+                address.setStreet(request.getParameter("street"));
+                address.setCity(request.getParameter("city"));
+                address.setState(request.getParameter("state"));
+                address.setZipCode(request.getParameter("zipCode"));
+                address.setPhone1(request.getParameter("phone1"));
+                address.setPhone2(request.getParameter("phone2"));
+                address.setEmail1(request.getParameter("email1"));
+                address.setEmail2(request.getParameter("email2"));
+
             }        
         }
         getServletContext().getRequestDispatcher(forwardedPage).
