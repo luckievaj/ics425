@@ -304,7 +304,8 @@ public class CustomerService {
 
 			//Loop through the DB and add to the array list.
 			while (rs.next()) {
-				Customer cust = new Customer();				
+				Customer cust = new Customer();
+				cust.setCustomerID("CUSTOMER_ID");
 				cust.setFirstName(rs.getString("FIRST_NAME"));
 				cust.setLastName(rs.getString("LAST_NAME"));
 				custList.add(cust);

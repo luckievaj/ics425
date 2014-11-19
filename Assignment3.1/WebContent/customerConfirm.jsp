@@ -10,7 +10,7 @@
 <body>
 	<h1>New Customer details Confirmation</h1>
 	<h2>Name</h2>
-	<p>${cust.lastName}, ${cust.firstName}</p>
+	<p>${cust.lastName},${cust.firstName}</p>
 	<h2>Address</h2>
 	<p>Street: ${add.street}</p>
 	<p>City:${add.city}</p>
@@ -25,15 +25,13 @@
 	<p>Anniversary 2: ${cred.annDate2} : ${cred.annDesc2}</p>
 	<p>Anniversary 3: ${cred.annDate3} : ${cred.annDesc3}</p>
 
-<%-- <%
+	<%-- <%
 		session.invalidate();
 	%> --%>
+	<button onclick="location.href = 'customerCredentials.jsp';" id="backBtn">Back</button>
+	<button onclick="location.href = 'customerViewAll.jsp';" id="submitBtn">Submit</button>
+	<button onclick="location.href = 'index.jsp';" id="cancelBtn">Cancel</button>
 
-	<button onclick="location.href = 'index.jsp';" id="homeButton"
-		class="float-left submit-button">Home</button>
-	<button onclick="location.href = 'customerViewAll.jsp';"
-		id="cviewButton" class="float-left submit-button">View All
-		Customers</button>
 
 </body>
 </html>

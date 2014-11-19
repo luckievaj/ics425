@@ -1,4 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	jstl/core web add jstl jar plays well with expressions
 	pageEncoding="ISO-8859-1"%>
 <%@ page
 	import="java.util.List, com.abc.model.Customer, com.abc.model.Address, com.abc.service.CustomerService"%>
@@ -9,11 +10,19 @@
 <title>View All Customers</title>
 </head>
 <body>
+
+	<script type="text/javascript">
+		function editCustomer(cid) {
+			url = "customerEdit";
+			window.location.href = "http://localhost:8086/Assignment3.1/" + url
+					+ "?cid" + id;
+		}
+	</script>
 	<center>
 		<h1>List of All Customers</h1>
 		<%
 			List<Customer> customers = (List<Customer>) request
-					.getAttribute("customers");
+					.getAttribute("custList");
 			if (null == customers) {
 				customers = CustomerService.getAllCustomers();
 			}
@@ -28,15 +37,27 @@
 				for (Customer cust : customers) {
 			%>
 			<tr>
+				<td><input type="hidden" value=<%=cust.getCustomerID()%>></td>
 				<td><%=cust.getFirstName()%></td>
 				<td><%=cust.getLastName()%></td>
-				<td><form action="customerDetail.jsp" method="post"> 
+
+				<!-- New code -->
+
+				<%-- 				<td><input type="submit" value="Edit" name="edit" onclick="editCustomer(<%=cust.getCustomerID() %>);"></td>
+				<td><input type="submit" value="Delete" name="delete" onclick="deleteCustomer(<%=cust.getCustomerID() %>);"></td>
+				 --%>
+				<!-- Original code -->
+
+				<td><form action="customerDetail.jsp" method="post">
+						<input type="hidden" value="${customer.customerId }"> 
 						<input type="submit" value="View">
 					</form></td>
 				<td><form action="customerEdit.jsp" method="post">
+						<input type="hidden" value="${customer.customerId }"> 
 						<input type="submit" value="Edit">
 					</form></td>
 				<td><form action="customerDelete.jsp" method="post">
+						<input type="hidden" value="${customer.customerId }"> 
 						<input type="submit" value="Delete">
 					</form></td>
 			</tr>
@@ -53,14 +74,11 @@
 				//delete ps. execute update
 				//utilize table joins and remember to delete foreign key  from join tables first, then use that reference to delete the secondary table. customer is eventualy last. 
 			  -->
-<!-- 		<p>
+		<!-- 		<p>
 			<a href="customerCreate.jsp">Click here to add a customer</a>
 		</p> -->
-		<button onclick="location.href = 'index.jsp';" id="homeButton"
-			class="float-left submit-button">Home</button>
-		<button onclick="location.href = 'customerCreate.jsp';"
-			id="ccreateButton" class="float-left submit-button">Create a New
-			Customers</button>
+		<!-- <button onclick="location.href = 'index.jsp';" id="homeButton">Home</button>
+		<button onclick="location.href = 'customerCreate.jsp';"id="ccreateButton">Create a New Customers</button> -->
 	</center>
 </body>
 </html>
