@@ -5,10 +5,10 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
-<title>Confirm</title>
+<title>Contact Confirm Page</title>
 </head>
 <body>
-	<h1>New Customer details Confirmation</h1>
+	<h1>New Contact details Confirmation</h1>
 	<h2>Name</h2>
 	<p>First Name: ${name.firstName } </p>
 		<p>Last Name: ${name.lastName } </p>
