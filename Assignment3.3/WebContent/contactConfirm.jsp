@@ -10,8 +10,8 @@
 <body>
 		<h1>New Contact details Confirmation</h1>
 		<h2>Name</h2>
-		<p>First Name: ${cName.firstName }</p>
-		<p>Last Name: ${cName.lastName }</p>
+		<p>First Name: ${contactName.firstName }</p>
+		<p>Last Name: ${contactName.lastName }</p>
 		
 		<h2>Address</h2>
 		<p>Street: ${address.street}</p>

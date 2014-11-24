@@ -14,8 +14,8 @@
 </head>
 <body>
 	<h1>Name</h1>
-		<p>First Name: ${cName.firstName } </p>
-		<p>Last Name: ${cName.lastName } </p>
+		<p>First Name: ${contactName.firstName } </p>
+		<p>Last Name: ${contactName.lastName } </p>
 		
 		
   
