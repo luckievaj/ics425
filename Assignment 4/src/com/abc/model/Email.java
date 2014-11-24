@@ -17,6 +17,10 @@ public class Email {
 	public void setEmail2(String email2) {
 		this.email2 = email2;
 	}
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
+	}
 	
 	
 }
