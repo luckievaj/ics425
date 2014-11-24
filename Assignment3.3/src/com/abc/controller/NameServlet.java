@@ -38,10 +38,10 @@ public class NameServlet extends HttpServlet {
                   forwardedPage = cancelPage;
               } else {
         synchronized(request.getSession() ) {
-            Name name = (Name) request.getSession().getAttribute("user");
+            Name name = (Name) request.getSession().getAttribute("name");
             if (null == name) {
                 name = new Name();
-                request.getSession().setAttribute("user", name);
+                request.getSession().setAttribute("name", name);
             }
             if ("".equalsIgnoreCase(request.getParameter("firstName")) 
                     || "".equalsIgnoreCase(request.getParameter("lastName"))) {

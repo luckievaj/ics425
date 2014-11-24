@@ -12,6 +12,8 @@
 <title>Address Input</title>
 </head>
 <body>
+	<h1>Name</h1>
+		<p>${name.firstName } ${name.lastName }</p>
   
     <form method="POST" action='AddressServlet' name="AddAddress">
         Street : <input type="text" name="street"
@@ -22,6 +24,15 @@
             value="<c:out value="${add.state}" />" /> <br /> 
         Zip Code : <input type="text" name="zipCode"
             value="<c:out value="${add.zipCode}" />" /> <br /> 
+        Phone 1: <input type="text" name="phone1"
+            value="<c:out value="${add.phone1}" />" /> <br /> 
+        Phone 2: <input type="text" name="phone2"
+            value="<c:out value="${add.phone2}" />" /> <br /> 
+        Email 1: <input type="text" name="email1"
+            value="<c:out value="${add.email1}" />" /> <br />
+        Email 2: <input type="text" name="email2"
+            value="<c:out value="${add.email2}" />" /> <br /> 
+            
         <input type="submit" name="next" value="Next" />
 	    <input type="submit" name="previous" value="Previous" />
 	    <input type="submit" name="cancel" value="Cancel" />
