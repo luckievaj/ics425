@@ -28,22 +28,22 @@
 	<form action="CredentialsServlet" method="post">
 		<p>
 			Anniversary Date:<input type="text" name="annDate1"
-				value="${cred.AnnDate1}" /></p>
+				value="${credentials.AnnDate1}" /></p>
 		<p>
 			Anniversary Description:<input type="text" name="annDesc1"
-				value="${cred.AnnDesc1}" /></p>
+				value="${credentials.AnnDesc1}" /></p>
 		<p>
 			Anniversary Date:<input type="text" name="annDate2"
-				value="${cred.AnnDate2}" /></p>
+				value="${credentials.AnnDate2}" /></p>
 		<p>
 			Anniversary Description:<input type="text" name="annDesc2"
-				value="${cred.AnnDesc2}" /></p>
+				value="${credentials.AnnDesc2}" /></p>
 		<p>
 			Anniversary Date:<input type="text" name="annDate3"
-				value="${cred.AnnDate3}" /></p>
+				value="${credentials.AnnDate3}" /></p>
 		<p>
 			Anniversary Description:<input type="text" name="annDesc3"
-				value="${cred.AnnDesc3}" /></p>
+				value="${credentials.AnnDesc3}" /></p>
 
 		<input type="submit" name="next" value="Next" />
 	    <input type="submit" name="previous" value="Previous" />
