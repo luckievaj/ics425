@@ -37,20 +37,19 @@ public class NameServlet extends HttpServlet {
 			forwardedPage = cancelPage;
 		} else {
 			synchronized (request.getSession()) {
-				ContactName name = (ContactName) request.getSession().getAttribute("name");
-				if (null == name) {
-					name = new ContactName();
-					request.getSession().setAttribute("name", name);
+				ContactName cName = (ContactName) request.getSession().getAttribute("cName");
+				if (null == cName) {
+					cName = new ContactName();
+					request.getSession().setAttribute("cName", cName);
 				}
 				if ("".equalsIgnoreCase(request.getParameter("firstName"))
-						|| "".equalsIgnoreCase(request.getParameter("lastName"))
-						|| "".equalsIgnoreCase(request.getParameter("userName"))) {
+						|| "".equalsIgnoreCase(request.getParameter("lastName"))) {
 					request.setAttribute("message", "Please enter all fields!");
 					forwardedPage = cancelPage;
 				} else {
-					name.setFirstName(request.getParameter("firstName"));
-					name.setLastName(request.getParameter("lastName"));
-					name.setUserName(request.getParameter("userName"));
+					cName.setFirstName(request.getParameter("firstName"));
+					cName.setLastName(request.getParameter("lastName"));
+			
 				}
 			}
 			getServletContext().getRequestDispatcher(forwardedPage).forward(

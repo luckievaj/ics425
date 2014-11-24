@@ -14,9 +14,9 @@
 </head>
 <body>
 	<h1>Name</h1>
-		<p>First Name: ${name.firstName } </p>
-		<p>Last Name: ${name.lastName } </p>
-		<p>Username: ${name.userName } </p>
+		<p>First Name: ${cName.firstName } </p>
+		<p>Last Name: ${cName.lastName } </p>
+		
 		
   
     <form method="POST" action='AddressServlet' name="AddAddress">

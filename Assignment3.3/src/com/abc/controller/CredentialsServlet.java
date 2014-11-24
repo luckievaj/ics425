@@ -19,7 +19,7 @@ public class CredentialsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
     private String previousPage = "/email.jsp";
-    private String nextPage = "/customerConfirm.jsp";
+    private String nextPage = "/contactConfirm.jsp";
 
     public CredentialsServlet() {
         super();
