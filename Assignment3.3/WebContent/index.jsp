@@ -17,11 +17,11 @@
 		<form action="name.jsp" method="post">
 			<br /> <br /> <input type="submit" value="Create a New User">
 		</form>
-		<form action="customerViewAll.jsp" method="post">
-			<br /> <br /> <input type="submit" value="View All Customers">
+		<form action="contactViewAll.jsp" method="post">
+			<br /> <br /> <input type="submit" value="View All Contacts">
 		</form>
-		<form action="customerCreate.jsp" method="post">
-			<br /> <br /> <input type="submit" value="Create a New Customer">
+		<form action="contactName.jsp" method="post">
+			<br /> <br /> <input type="submit" value="Create a New Contact">
 		</form>
 
 	</center>
