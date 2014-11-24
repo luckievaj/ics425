@@ -26,7 +26,6 @@
 	
 		
 	<form action="CredentialsServlet" method="post">
-	<p style="color:red">${message}</p>
 		<p>
 			Anniversary Date: <input type="text" name="annDate1"
 				value="${credentials.annDate1}" /></p>

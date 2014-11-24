@@ -26,6 +26,7 @@
   		<p>Phone 2: ${phone.phone2}</p>
   		 
     <form method="POST" action='EmailServlet' name="AddEmail">
+    <p style="color:red">${message}</p>
        <p> Email 1 : <input type="text" name="email1"
             value="<c:out value="${email.email1}" />" /> </p> 
         <p>Email 2 : <input type="text" name="email2"

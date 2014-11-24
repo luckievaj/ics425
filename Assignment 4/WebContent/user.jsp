@@ -12,7 +12,6 @@
     
 
     <form method="POST" action='UserController' name="frmAddUser">
-    <p style="color:red">${message}</p>
         User ID : <input type="text" readonly="readonly" name="userid"
             value="<c:out value="${user.userid}" />" /> <br /> 
         First Name : <input

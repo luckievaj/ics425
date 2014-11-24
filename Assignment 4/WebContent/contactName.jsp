@@ -14,7 +14,6 @@
 <body>
   
     <form method="POST" action='ContactNameServlet' name="AddName">
-    <p style="color:red">${message}</p>
         First Name : <input type="text" name="firstName"
             value="<c:out value="${contactName.firstName}" />" /> <br /> 
         Last Name : <input type="text" name="lastName"
