@@ -19,6 +19,7 @@
     	<p>Zip code: ${address.zipCode}</p>
     	
     	<form action="PhoneServlet" method="post">
+    	<p style="color:red">${message}</p>
 		<p>Phone 1:<input type="text" name="phone1" value="${phone.phone1 }"/></p>
 		<p>Phone 2:<input type="text" name="phone2" value="${phone.phone2 }"/></p>
 		<input type="submit" name="next" value="Next" />
