@@ -2,8 +2,7 @@ package com.abc.controller;
 
 import java.io.IOException;
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
@@ -54,14 +53,10 @@ public class UserController extends HttpServlet {
         User user = new User();
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
-        try {
-            Date dob = new SimpleDateFormat("MM/dd/yyyy").parse(request.getParameter("dob"));
-            user.setDob(dob);
-        } catch (ParseException e) {
-            e.printStackTrace();
-        }
-        user.setEmail(request.getParameter("email"));
         String userid = request.getParameter("userid");
+        user.setUserName(request.getParameter("userName"));
+        
+       
         if(userid == null || userid.isEmpty())
         {
             dao.addUser(user);
@@ -72,7 +67,7 @@ public class UserController extends HttpServlet {
             dao.updateUser(user);
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-        request.setAttribute("users", dao.getAllUsers());
+        request.setAttribute("userList", dao.getAllUsers());
         view.forward(request, response);
     }
 }
