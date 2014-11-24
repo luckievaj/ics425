@@ -26,10 +26,10 @@
   		<p>Phone 2: ${phone.phone2}</p>
   		 
     <form method="POST" action='EmailServlet' name="AddEmail">
-        Email 1 : <input type="text" name="email1"
-            value="<c:out value="${email.email1}" />" /> <br /> 
-        Email 2 : <input type="text" name="email2"
-            value="<c:out value="${email.email2}" />" /> <br /> 
+       <p> Email 1 : <input type="text" name="email1"
+            value="<c:out value="${email.email1}" />" /> </p> 
+        <p>Email 2 : <input type="text" name="email2"
+            value="<c:out value="${email.email2}" />" /> </p> 
                     
         <input type="submit" name="next" value="Next" />
 	    <input type="submit" name="previous" value="Previous" />
