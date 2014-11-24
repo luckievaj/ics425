@@ -21,7 +21,7 @@ public class UserService {
 	public void addUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into users(first_name,last_name,user_name) values (?, ?, ?)");
+					.prepareStatement("insert into user (first_name,last_name,user_name) values (?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, name.getFirstName());
 			preparedStatement.setString(2, name.getLastName());
