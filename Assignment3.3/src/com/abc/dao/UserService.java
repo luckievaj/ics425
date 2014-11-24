@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.abc.model.User;
+import com.abc.model.Name;
 import com.abc.util.DbUtil;
 
 public class UserService {
@@ -18,7 +18,7 @@ public class UserService {
 		connection = DbUtil.getConnection();
 	}
 
-	public void addUser(User user) {
+	public void addUser(Name user) {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into users(firstname,lastname,username) values (?, ?, ?)");
@@ -46,7 +46,7 @@ public class UserService {
 		}
 	}
 	
-	public void updateUser(User user) {
+	public void updateUser(Name user) {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("update users set firstname=?, lastname=?, username=?" +
@@ -63,13 +63,13 @@ public class UserService {
 		}
 	}
 
-	public List<User> getAllUsers() {
-		List<User> users = new ArrayList<User>();
+	public List<Name> getAllUsers() {
+		List<Name> users = new ArrayList<Name>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select * from users");
 			while (rs.next()) {
-				User user = new User();
+				Name user = new Name();
 				user.setUserid(rs.getInt("userid"));
 				user.setFirstName(rs.getString("firstname"));
 				user.setLastName(rs.getString("lastname"));
@@ -83,8 +83,8 @@ public class UserService {
 		return users;
 	}
 	
-	public User getUserById(int userId) {
-		User user = new User();
+	public Name getUserById(int userId) {
+		Name user = new Name();
 		try {
 			PreparedStatement preparedStatement = connection.
 					prepareStatement("select * from users where userid=?");

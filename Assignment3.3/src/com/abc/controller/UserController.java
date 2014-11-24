@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abc.dao.UserService;
-import com.abc.model.User;
+import com.abc.model.Name;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -33,7 +33,7 @@ public class UserController extends HttpServlet {
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
             int userId = Integer.parseInt(request.getParameter("userId"));
-            User user = dao.getUserById(userId);
+            Name user = dao.getUserById(userId);
             request.setAttribute("user", user);
         } else if (action.equalsIgnoreCase("listUser")){
             forward = LIST_USER;
@@ -47,7 +47,7 @@ public class UserController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = new User();
+        Name user = new Name();
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
         user.setUserName(request.getParameter("username"));

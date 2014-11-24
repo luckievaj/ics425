@@ -1,6 +1,6 @@
 package com.abc.model;
 
-public class User {
+public class Name {
 
 	private int userid;
 	private String firstName;

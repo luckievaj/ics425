@@ -22,9 +22,9 @@
             value="<c:out value="${add.state}" />" /> <br /> 
         Zip Code : <input type="text" name="zipCode"
             value="<c:out value="${add.zipCode}" />" /> <br /> 
-        <input type="submit"
-			name="previous" value="Previous" /> <input type="submit"
-			name="cancel" value="Cancel" />
+        <input type="submit" name="next" value="Next" />
+	    <input type="submit" name="previous" value="Previous" />
+	    <input type="submit" name="cancel" value="Cancel" />
     </form>
 </body>
 </html>

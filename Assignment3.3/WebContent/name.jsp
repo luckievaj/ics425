@@ -21,7 +21,8 @@
         User Name : <input type="text" name="userName"
             value="<c:out value="${user.userName}" />" /> <br /> 
                    
-                   <input type="submit" value="Submit" />
+                  <input type="submit" name="next" value="Next" />
+                    <input type="submit" name="cancel" value="Cancel" />
     </form>
 </body>
 </html>
