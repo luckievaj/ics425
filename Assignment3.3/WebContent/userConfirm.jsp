@@ -16,8 +16,8 @@
 	<p>Last Name: ${name.lastName }</p>
 	<p>Username: ${name.userName }</p>
 
-	<button onclick="location.href = 'customerCredentials.jsp';" id="backBtn">Back</button>
-	<button onclick="location.href = 'customerViewAll.jsp';" id="submitBtn">Submit</button>
+	<button onclick="location.href = 'user.jsp';" id="backBtn">Back</button>
+	<button onclick="location.href = 'userConfirm.jsp';" id="submitBtn">Submit</button>
 	<button onclick="location.href = 'index.jsp';" id="cancelBtn">Cancel</button>
 
 </body>
