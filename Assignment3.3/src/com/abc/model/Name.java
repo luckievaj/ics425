@@ -2,16 +2,16 @@ package com.abc.model;
 
 public class Name {
 
-	private int userid;
+	private int userId;
 	private String firstName;
 	private String lastName;
 	private String userName;
 	
-	public int getuserid() {
-		return userid;
+	public int getUserId() {
+		return userId;
 	}
-	public void setuserid(int userid) {
-		this.userid = userid;
+	public void setUserId(int userId) {
+		this.userId = userId;
 	}
 	public String getFirstName() {
 		return firstName;
@@ -33,7 +33,7 @@ public class Name {
 	}
 	@Override
 	public String toString() {
-		return "User [userid=" + userid + ", firstName=" + firstName
+		return "User [userId=" + userId + ", firstName=" + firstName
 				+ ", lastName=" + lastName + ", username=" + userName + "]";
 	}
 	
