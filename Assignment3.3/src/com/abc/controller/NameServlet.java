@@ -17,7 +17,7 @@ public class NameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private String cancelPage = "/index.jsp";
-    private String nextPage = "/address.jsp"; // POINT TO SHOW ALL USERS AFTER DONE
+    private String nextPage = "/userConfirm.jsp"; // POINT TO SHOW ALL USERS AFTER DONE
     
     public NameServlet() {
         super();

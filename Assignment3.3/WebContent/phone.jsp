@@ -9,7 +9,9 @@
 </head>
 <body>
 	<h2>Name</h2>
-		<p>${name.firstName} ${name.lastName}</p>
+		<p>First Name: ${name.firstName } </p>
+		<p>Last Name: ${name.lastName } </p>
+		<p>Username: ${name.userName } </p>
 	<h2>Address</h2>
     	<p>Street: ${address.street}</p>
     	<p>City:${address.city}</p>
