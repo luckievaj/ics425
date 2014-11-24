@@ -9,21 +9,20 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.*;
-/**
- * Servlet implementation class NameServlet
- */
-@WebServlet("/NameServlet")
-public class NameServlet extends HttpServlet {
+
+@WebServlet("/ContactNameServlet")
+public class ContactNameServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
-	
+       
 	private String cancelPage = "/index.jsp";
-    private String nextPage = "/userConfirm.jsp"; 
+    private String nextPage = "/address.jsp";
     
-    public NameServlet() {
+    public ContactNameServlet() {
         super();
-        
+     
     }
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -37,10 +36,10 @@ public class NameServlet extends HttpServlet {
 			forwardedPage = cancelPage;
 		} else {
 			synchronized (request.getSession()) {
-				ContactName name = (ContactName) request.getSession().getAttribute("name");
-				if (null == name) {
-					name = new ContactName();
-					request.getSession().setAttribute("name", name);
+				ContactName contactName = (ContactName) request.getSession().getAttribute("contactName");
+				if (null == contactName) {
+					contactName = new ContactName();
+					request.getSession().setAttribute("contactName", contactName);
 				}
 				if ("".equalsIgnoreCase(request.getParameter("firstName"))
 						|| "".equalsIgnoreCase(request.getParameter("lastName"))
@@ -48,9 +47,9 @@ public class NameServlet extends HttpServlet {
 					request.setAttribute("message", "Please enter all fields!");
 					forwardedPage = cancelPage;
 				} else {
-					name.setFirstName(request.getParameter("firstName"));
-					name.setLastName(request.getParameter("lastName"));
-					name.setUserName(request.getParameter("userName"));
+					contactName.setFirstName(request.getParameter("firstName"));
+					contactName.setLastName(request.getParameter("lastName"));
+					contactName.setUserName(request.getParameter("userName"));
 				}
 			}
 			getServletContext().getRequestDispatcher(forwardedPage).forward(
