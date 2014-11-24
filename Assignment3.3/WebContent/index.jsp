@@ -14,7 +14,7 @@
 		<form action="viewAllUsers.jsp" method="post">
 			<br /> <br /> <input type="submit" value="View All Users">
 		</form>
-		<form action="name.jsp" method="post">
+		<form action="user.jsp" method="post">
 			<br /> <br /> <input type="submit" value="Create a New User">
 		</form>
 		<form action="contactViewAll.jsp" method="post">

@@ -1,11 +1,11 @@
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="EUC-KR"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
 <title>Show All Users</title>
 </head>
 <body>
@@ -15,23 +15,19 @@
                 <th>User Id</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>User Name</th>
-               
+                <th>DOB</th>
+                <th>Email</th>
                 <th colspan=2>Action</th>
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${name}" var="name" >
-            
+            <c:forEach items="${users}" var="user">
                 <tr>
-                    <td><c:out value="${name.userId}" /></td>
-                    <td><c:out value="${name.firstName}" /></td>
-                    <td><c:out value="${name.lastName}" /></td>
-                    <td><c:out value="${name.userName}" /></td>
-                    
-                    
-                    <td><a href="UserController?action=edit&nameId=<c:out value="${name.userId}"/>">Update</a></td>
-                    <td><a href="UserController?action=delete&nameId=<c:out value="${name.userId}"/>">Delete</a></td>
+                    <td><c:out value="${user.userid}" /></td>
+                    <td><c:out value="${user.firstName}" /></td>
+                    <td><c:out value="${user.lastName}" /></td>
+                    <td><a href="UserController?action=edit&userId=<c:out value="${user.userid}"/>">Update</a></td>
+                    <td><a href="UserController?action=delete&userId=<c:out value="${user.userid}"/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>
