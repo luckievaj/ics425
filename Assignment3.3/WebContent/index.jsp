@@ -11,7 +11,7 @@
 		<h1>Database Management Console </h1>
 
 
-		<form action="userViewAll.jsp" method="post">
+		<form action="viewAllUsers.jsp" method="post">
 			<br /> <br /> <input type="submit" value="View All Users">
 		</form>
 		<form action="userCreate.jsp" method="post">
@@ -25,6 +25,5 @@
 		</form>
 
 	</center>
-	</form>
 </body>
 </html>
