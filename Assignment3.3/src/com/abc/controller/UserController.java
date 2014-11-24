@@ -29,13 +29,13 @@ public class UserController extends HttpServlet {
         String action = request.getParameter("action");
 
         if (action.equalsIgnoreCase("delete")){
-            int userId = Integer.parseInt(request.getParameter("userId"));
+            int userId = Integer.parseInt(request.getParameter("userid"));
             dao.deleteUser(userId);
             forward = LIST_USER;
             request.setAttribute("userList", dao.getAllUsers());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
-            int userId = Integer.parseInt(request.getParameter("userId"));
+            int userId = Integer.parseInt(request.getParameter("userid"));
             User user = dao.getUserById(userId);
             request.setAttribute("user", user);
         } else if (action.equalsIgnoreCase("listUser")){
@@ -51,9 +51,9 @@ public class UserController extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         User user = new User();
+        String userid = request.getParameter("userid");
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
-        String userid = request.getParameter("userid");
         user.setUserName(request.getParameter("userName"));
         
        

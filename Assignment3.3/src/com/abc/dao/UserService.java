@@ -12,7 +12,7 @@ import com.abc.util.DbUtil;
 
 public class UserService {
 
-	private Connection connection;
+	private static Connection connection;
 
 	public UserService() {
 		connection = DbUtil.getConnection();
@@ -21,7 +21,7 @@ public class UserService {
 	public void addUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into user(firstname,lastname,userName) values (?, ?, ? )");
+					.prepareStatement("insert into user (first_name,last_name, user_name) values (?, ?, ? )");
 			// Parameters start with 1
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
@@ -36,7 +36,7 @@ public class UserService {
 	public void deleteUser(int userId) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from user where userId=?");
+					.prepareStatement("delete from user where user_id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, userId);
 			preparedStatement.executeUpdate();
@@ -49,8 +49,8 @@ public class UserService {
 	public void updateUser(User user) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update user set firstname=?, lastname=?, userName=?" +
-							"where userId=?");
+					.prepareStatement("update user set first_name=?, last_name=?, user_name=?" +
+							"where user_id=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, user.getFirstName());
 			preparedStatement.setString(2, user.getLastName());
@@ -63,39 +63,39 @@ public class UserService {
 		}
 	}
 
-	public List<User> getAllUsers() {
-		List<User> userList = new ArrayList<User>();
+	public static List<User> getAllUsers() {
+		List<User> users = new ArrayList<User>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from users");
+			ResultSet rs = statement.executeQuery("select * from user");
 			while (rs.next()) {
 				User user = new User();
-				user.setUserid(rs.getInt("userid"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
-				user.setUserName(rs.getString("userName"));
-				userList.add(user);
+				user.setUserid(rs.getInt("user_id"));
+				user.setFirstName(rs.getString("first_name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setUserName(rs.getString("user_name"));
+				users.add(user);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return userList;
+		return users;
 	}
 	
 	public User getUserById(int userId) {
 		User user = new User();
 		try {
 			PreparedStatement preparedStatement = connection.
-					prepareStatement("select * from user where userId=?");
+					prepareStatement("select * from user where user_id=?");
 			preparedStatement.setInt(1, userId);
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				user.setUserid(rs.getInt("userId"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
-				user.setUserName(rs.getString("userName"));
+				user.setUserid(rs.getInt("user_id"));
+				user.setFirstName(rs.getString("first_name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setUserName(rs.getString("user_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
