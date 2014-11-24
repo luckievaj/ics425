@@ -50,7 +50,7 @@ public class UserController extends HttpServlet {
         Name user = new Name();
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));
-        user.setUserName(request.getParameter("username"));
+        user.setUserName(request.getParameter("userName"));
         String userid = request.getParameter("userid");
         if(userid == null || userid.isEmpty())
         {

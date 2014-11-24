@@ -44,12 +44,14 @@ public class NameServlet extends HttpServlet {
                 request.getSession().setAttribute("name", name);
             }
             if ("".equalsIgnoreCase(request.getParameter("firstName")) 
-                    || "".equalsIgnoreCase(request.getParameter("lastName"))) {
+                    || "".equalsIgnoreCase(request.getParameter("lastName"))
+                    || "".equalsIgnoreCase(request.getParameter("userName"))) {
                 request.setAttribute("message", "Please enter all fields!");
                 forwardedPage = cancelPage;
             } else {
                 name.setFirstName(request.getParameter("firstName"));
                 name.setLastName(request.getParameter("lastName"));
+                name.setUserName(request.getParameter("userName"));
             }            
         }        
         getServletContext().getRequestDispatcher(forwardedPage).
