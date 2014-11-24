@@ -25,10 +25,29 @@
 	<p>Anniversary 2: ${cred.annDate2} : ${cred.annDesc2}</p>
 	<p>Anniversary 3: ${cred.annDate3} : ${cred.annDesc3}</p>
 
-	<%-- <%
-		session.invalidate();
-	%> --%>
-	<button onclick="location.href = 'customerCredentials.jsp';" id="backBtn">Back</button>
+	<%
+	/* 	//	Pass the variables via the "customer" object to the method persistCustomer()
+		customer.setFirstName((String) request.getParameter("firstName"));
+		customer.setLastName((String) request.getParameter("lastName"));
+		phone.setPhone1((String) request.getParameter("phone1"));
+		phone.setPhone2((String) request.getParameter("phone2"));
+		email.setEmail1((String) request.getParameter("email1"));
+		email.setEmail2((String) request.getParameter("email2"));		
+        cred.setAnnDate1((String)request.getParameter("annDate1"));
+        cred.setAnnDesc1((String)request.getParameter("annDesc1"));
+        cred.setAnnDate2((String)request.getParameter("annDate2"));
+        cred.setAnnDesc2((String)request.getParameter("annDesc2"));
+        cred.setAnnDate3((String)request.getParameter("annDate3"));
+        cred.setAnnDesc3((String)request.getParameter("annDesc3"));            
+        
+        Customer customer = new Customer();
+		CustomerService.persistCustomer(customer);
+
+		request.setAttribute("customer", CustomerService.getAllCustomers()); */
+		
+	%>
+	<button onclick="location.href = 'customerCredentials.jsp';"
+		id="backBtn">Back</button>
 	<button onclick="location.href = 'customerViewAll.jsp';" id="submitBtn">Submit</button>
 	<button onclick="location.href = 'index.jsp';" id="cancelBtn">Cancel</button>
 

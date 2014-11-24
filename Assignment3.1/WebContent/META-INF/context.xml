@@ -2,9 +2,9 @@
 <Context>
 	<Resource name="jdbc/ics425" auth="Container"
 		maxActive="100" maxIdle="30" maxWait="10000"
-		username="guest" password="P@ssword"
+		username="guest" password="password"
 		driverClassName="com.mysql.jdbc.Driver"
-		url="jdbc:mysql://127.0.0.1:3306/ics425"
+		url="jdbc:mysql://127.0.0.1:3306/ics425a"
 		logAbandoned="true" removeAbandoned="true"
 		removeAbandonedTimeout="60" type="javax.sql.DataSource"
 	/>

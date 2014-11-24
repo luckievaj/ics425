@@ -10,7 +10,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.*;
 import com.abc.service.*;
-import com.abc.service.CustomerService;
 /**
  * Servlet implementation class CredentialsServlet
  */
@@ -41,32 +40,21 @@ public class CredentialsServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Credentials cred = (Credentials) request.getSession().getAttribute("credentials");            
-                if (null == cred) {
-                	cred = new Credentials();
-                    request.getSession().setAttribute("credentials", cred);
+            	Credentials credentials = (Credentials) request.getSession().getAttribute("cred");            
+                if (null == credentials) {
+                	credentials = new Credentials();
+                    request.getSession().setAttribute("cred", credentials);
                 }
-                cred.setAnnDate1(request.getParameter("annDate1"));
-                cred.setAnnDesc1(request.getParameter("annDesc1"));
-                cred.setAnnDate2(request.getParameter("annDate2"));
-                cred.setAnnDesc2(request.getParameter("annDesc2"));
-                cred.setAnnDate3(request.getParameter("annDate3"));
-                cred.setAnnDesc3(request.getParameter("annDesc3"));
+                credentials.setAnnDate1((String)request.getParameter("annDate1"));
+                credentials.setAnnDesc1((String)request.getParameter("annDesc1"));
+                credentials.setAnnDate2((String)request.getParameter("annDate2"));
+                credentials.setAnnDesc2((String)request.getParameter("annDesc2"));
+                credentials.setAnnDate3((String)request.getParameter("annDate3"));
+                credentials.setAnnDesc3((String)request.getParameter("annDesc3"));
                 
-                String annDate1 = request.getParameter("annDate1");
-                String annDesc1 = request.getParameter("annDesc1");
-                String annDate2 = request.getParameter("annDate2");
-                String annDesc2 = request.getParameter("annDesc2");               
-                String annDate3 = request.getParameter("annDate3");
-                String annDesc3 = request.getParameter("annDesc3");              
-                
-				Credentials credentials = new Credentials(annDate1, annDesc1, annDate2, annDesc2, annDate3, annDesc3);
+        		request.setAttribute("cred", CustomerService.getAllCustomers());
 
-				CredentialsService.persistCredentials(credentials);
-
-				request.setAttribute("credentials", CustomerService.getAllCustomers());
-                
-            }        
+            }
         }
         getServletContext().getRequestDispatcher(forwardedPage).
           forward(request, response);

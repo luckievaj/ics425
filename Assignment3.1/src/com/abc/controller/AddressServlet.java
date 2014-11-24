@@ -1,12 +1,15 @@
 package com.abc.controller;
 
 import java.io.IOException;
+
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+
 import com.abc.model.Address;
+import com.abc.service.CustomerService;
 /**
  * Servlet implementation class AddressServlet
  */
@@ -40,19 +43,17 @@ public class AddressServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Address address = (Address) request.getSession().getAttribute("address");            
-                if (null == address) {
-                    address = new Address();
-                    request.getSession().setAttribute("address", address);
+                Address addr = (Address) request.getSession().getAttribute("address");            
+                if (null == addr) {
+                    addr = new Address();
+                    request.getSession().setAttribute("address", addr);
                 }    
-                address.setStreet(request.getParameter("street"));
-                address.setCity(request.getParameter("city"));
-                address.setState(request.getParameter("state"));
-                address.setZipCode(request.getParameter("zipCode"));
-//                address.setPhone1(request.getParameter("phone1"));
-//                address.setPhone2(request.getParameter("phone2"));
-//                address.setEmail1(request.getParameter("email1"));
-//                address.setEmail2(request.getParameter("email2"));
+                addr.setStreet(request.getParameter("street"));
+                addr.setCity(request.getParameter("city"));
+                addr.setState(request.getParameter("state"));
+                addr.setZipCode(request.getParameter("zipCode"));
+                
+        		request.setAttribute("address", CustomerService.getAllCustomers());
 
             }        
         }

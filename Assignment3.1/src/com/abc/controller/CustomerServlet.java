@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.abc.model.Credentials;
 import com.abc.model.Customer;
 import com.abc.service.CustomerService;
 /**
@@ -58,14 +59,22 @@ public class CustomerServlet extends HttpServlet {
 					forwardedPage = cancelPage;
 					
 				} else {
-					
-					//Pass the variables via the "customer" object to the method persistCustomer()
-					customer.setFirstName((String)request.getParameter("firstName"));
-					customer.setLastName((String)request.getParameter("lastName"));
-					
-					CustomerService.persistCustomer(customer);
-				}            
+		            synchronized(request.getSession() ) {
+		            	Customer cust = (Customer) request.getSession().getAttribute("customer");            
+		                if (null == cust) {
+		                	cust = new Customer();
+		                    request.getSession().setAttribute("customer", cust);
+		                }
+		                cust.setFirstName((String)request.getParameter("firstName"));
+		                cust.setLastName((String)request.getParameter("lastName"));
+
+		                
+		        		request.setAttribute("customer", CustomerService.getAllCustomers());
+
+		            }
+		        }            
 			}        
+			
 			getServletContext().getRequestDispatcher(forwardedPage).
 			forward(request, response);
 

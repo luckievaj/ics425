@@ -25,6 +25,5 @@
 		</form>
 
 	</center>
-	</form>
 </body>
 </html>

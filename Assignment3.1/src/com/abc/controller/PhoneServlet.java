@@ -50,8 +50,9 @@ public class PhoneServlet extends HttpServlet {
 				}    
 				phone.setPhone1((String)request.getParameter("phone1"));
 				phone.setPhone2((String)request.getParameter("phone2"));
+        		
+				request.setAttribute("phn", CustomerService.getAllCustomers());
 
-				CustomerService.persistPhone(phone);
 			}        
 		}
 		getServletContext().getRequestDispatcher(forwardedPage).

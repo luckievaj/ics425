@@ -2,12 +2,12 @@ package com.abc.model;
 
 public class Customer {
 	private int customerId;
-	private String firstName;
-	private String lastName;
-	private Address address;
-	private Phone phone;
-	private Email email;
-	private Credentials credentials;
+	public String firstName;
+	public String lastName;
+	public Address address;
+	public Phone phone;
+	public Email email;
+	public Credentials credentials;
 
 	public Customer() {
 	}

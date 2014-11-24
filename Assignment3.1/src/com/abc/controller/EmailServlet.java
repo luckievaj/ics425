@@ -56,7 +56,7 @@ public class EmailServlet extends HttpServlet {
 					email.setEmail1((String)request.getParameter("email1"));
 					email.setEmail2((String)request.getParameter("email2"));
 
-					CustomerService.persistEmail(email);
+	        		request.setAttribute("eml", CustomerService.getAllCustomers());
 				}        
 			}
 			getServletContext().getRequestDispatcher(forwardedPage).
