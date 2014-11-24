@@ -21,7 +21,7 @@ public class UserService {
 	public void addUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into users(firstname,lastname,username) values (?, ?, ?)");
+					.prepareStatement("insert into users(first_name,last_name,user_name) values (?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, name.getFirstName());
 			preparedStatement.setString(2, name.getLastName());
@@ -36,7 +36,7 @@ public class UserService {
 	public void deleteUser(int userId) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from user where userid=?");
+					.prepareStatement("delete from user where user_id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, userId);
 			preparedStatement.executeUpdate();
@@ -49,8 +49,8 @@ public class UserService {
 	public void updateUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update user set firstname=?, lastname=?, username=?" +
-							"where userid=?");
+					.prepareStatement("update user set first_name=?, last_name=?, user_name=?" +
+							"where user_id=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, name.getFirstName());
 			preparedStatement.setString(2, name.getLastName());
@@ -64,7 +64,7 @@ public class UserService {
 	}
 
 	public List<Name> getAllUsers() {
-		List<Name> name = new ArrayList<Name>();
+		List<Name> nameList = new ArrayList<Name>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select * from user");
@@ -74,20 +74,20 @@ public class UserService {
 				name.setFirstName(rs.getString("firstname"));
 				name.setLastName(rs.getString("lastname"));
 				name.setUserName(rs.getString("username"));
-				name.add(name);
+				nameList.add(name);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return user;
+		return nameList;
 	}
 	
 	public Name getUserById(int userId) {
 		Name user = new Name();
 		try {
 			PreparedStatement preparedStatement = connection.
-					prepareStatement("select * from users where userid=?");
+					prepareStatement("select * from user where user_id=?");
 			preparedStatement.setInt(1, userId);
 			ResultSet rs = preparedStatement.executeQuery();
 			
