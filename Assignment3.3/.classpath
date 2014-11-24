@@ -9,6 +9,6 @@
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.web.container"/>
 	<classpathentry kind="con" path="org.eclipse.jst.j2ee.internal.module.container"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
-	<classpathentry kind="lib" path="C:/Program Files/Java/apache-tomcat-7.0.56/lib/mysql-connector-java-5.1.33-bin.jar"/>
+	<classpathentry kind="lib" path="/Users/lvang/ics425/mysql-connector-java-5.1.33-bin.jar"/>
 	<classpathentry kind="output" path="build/classes"/>
 </classpath>
