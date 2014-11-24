@@ -10,18 +10,17 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.*;
 /**
- * Servlet implementation class AddressServlet
+ * Servlet implementation class PhoneServlet
  */
-@WebServlet("/AddressServlet")
-public class AddressServlet extends HttpServlet {
+@WebServlet("/PhoneServlet")
+public class PhoneServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-    private String previousPage = "/name.jsp";
-    private String nextPage = "/phone.jsp";
-    
-    public AddressServlet() {
+    private String previousPage = "/address.jsp";
+    private String nextPage = "/email.jsp";
+    public PhoneServlet() {
         super();
-      
+     
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
@@ -39,17 +38,14 @@ public class AddressServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Address address = (Address) request.getSession().getAttribute("address");            
-                if (null == address) {
-                    address = new Address();
-                    request.getSession().setAttribute("address", address);
+                Phone phone = (Phone) request.getSession().getAttribute("phone");            
+                if (null == phone) {
+                    phone = new Phone();
+                    request.getSession().setAttribute("phone", phone);
                 }    
-                address.setStreet(request.getParameter("street"));
-                address.setCity(request.getParameter("city"));
-                address.setState(request.getParameter("state"));
-                address.setZipCode(request.getParameter("zipCode"));
-               
-                
+                phone.setPhone1(request.getParameter("phone1"));
+                phone.setPhone2(request.getParameter("phone2"));
+                                          
             }        
         }
         getServletContext().getRequestDispatcher(forwardedPage).
@@ -57,7 +53,4 @@ public class AddressServlet extends HttpServlet {
 
 	}
 
-
-	}
-
-
+}

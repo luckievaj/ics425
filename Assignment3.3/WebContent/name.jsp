@@ -15,11 +15,11 @@
   
     <form method="POST" action='NameServlet' name="AddName">
         First Name : <input type="text" name="firstName"
-            value="<c:out value="${user.firstName}" />" /> <br /> 
+            value="<c:out value="${name.firstName}" />" /> <br /> 
         Last Name : <input type="text" name="lastName"
-            value="<c:out value="${user.lastName}" />" /> <br /> 
+            value="<c:out value="${name.lastName}" />" /> <br /> 
         User Name : <input type="text" name="userName"
-            value="<c:out value="${user.userName}" />" /> <br /> 
+            value="<c:out value="${name.userName}" />" /> <br /> 
                    
                   <input type="submit" name="next" value="Next" />
                     <input type="submit" name="cancel" value="Cancel" />

@@ -16,5 +16,3 @@ public class Phone {
     }
     private boolean isEmpty(String s) { return (s == null || s.length() == 0); }
 }
-
-

@@ -10,20 +10,22 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.*;
 /**
- * Servlet implementation class AddressServlet
+ * Servlet implementation class EmailServlet
  */
-@WebServlet("/AddressServlet")
-public class AddressServlet extends HttpServlet {
+@WebServlet("/EmailServlet")
+public class EmailServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
+       
 	private String cancelPage = "/index.jsp";
-    private String previousPage = "/name.jsp";
-    private String nextPage = "/phone.jsp";
+    private String previousPage = "/phone.jsp";
+    private String nextPage = "/credentials.jsp";
     
-    public AddressServlet() {
+    public EmailServlet() {
         super();
-      
+       
     }
 
+	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		doPost(request, response);
 	}
@@ -39,17 +41,14 @@ public class AddressServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Address address = (Address) request.getSession().getAttribute("address");            
-                if (null == address) {
-                    address = new Address();
-                    request.getSession().setAttribute("address", address);
+                Email email = (Email) request.getSession().getAttribute("email");            
+                if (null == email) {
+                    email = new Email();
+                    request.getSession().setAttribute("email", email);
                 }    
-                address.setStreet(request.getParameter("street"));
-                address.setCity(request.getParameter("city"));
-                address.setState(request.getParameter("state"));
-                address.setZipCode(request.getParameter("zipCode"));
-               
-                
+                email.setEmail1(request.getParameter("email1"));
+                email.setEmail2(request.getParameter("email2"));
+                                          
             }        
         }
         getServletContext().getRequestDispatcher(forwardedPage).
@@ -57,7 +56,4 @@ public class AddressServlet extends HttpServlet {
 
 	}
 
-
-	}
-
-
+}

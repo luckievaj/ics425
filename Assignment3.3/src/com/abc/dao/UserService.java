@@ -18,14 +18,14 @@ public class UserService {
 		connection = DbUtil.getConnection();
 	}
 
-	public void addUser(Name user) {
+	public void addUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into users(firstname,lastname,username) values (?, ?, ?)");
 			// Parameters start with 1
-			preparedStatement.setString(1, user.getFirstName());
-			preparedStatement.setString(2, user.getLastName());
-			preparedStatement.setString(3, user.getUserName());
+			preparedStatement.setString(1, name.getFirstName());
+			preparedStatement.setString(2, name.getLastName());
+			preparedStatement.setString(3, name.getUserName());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -36,7 +36,7 @@ public class UserService {
 	public void deleteUser(int userId) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from users where userid=?");
+					.prepareStatement("delete from user where userid=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, userId);
 			preparedStatement.executeUpdate();
@@ -46,16 +46,16 @@ public class UserService {
 		}
 	}
 	
-	public void updateUser(Name user) {
+	public void updateUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update users set firstname=?, lastname=?, username=?" +
+					.prepareStatement("update user set firstname=?, lastname=?, username=?" +
 							"where userid=?");
 			// Parameters start with 1
-			preparedStatement.setString(1, user.getFirstName());
-			preparedStatement.setString(2, user.getLastName());
-			preparedStatement.setString(3, user.getUserName());
-			preparedStatement.setInt(4, user.getUserid());
+			preparedStatement.setString(1, name.getFirstName());
+			preparedStatement.setString(2, name.getLastName());
+			preparedStatement.setString(3, name.getUserName());
+			preparedStatement.setInt(4, name.getUserid());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -64,23 +64,23 @@ public class UserService {
 	}
 
 	public List<Name> getAllUsers() {
-		List<Name> users = new ArrayList<Name>();
+		List<Name> name = new ArrayList<Name>();
 		try {
 			Statement statement = connection.createStatement();
-			ResultSet rs = statement.executeQuery("select * from users");
+			ResultSet rs = statement.executeQuery("select * from user");
 			while (rs.next()) {
-				Name user = new Name();
-				user.setUserid(rs.getInt("userid"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
-				user.setUserName(rs.getString("username"));
-				users.add(user);
+				Name name = new Name();
+				name.setUserid(rs.getInt("userid"));
+				name.setFirstName(rs.getString("firstname"));
+				name.setLastName(rs.getString("lastname"));
+				name.setUserName(rs.getString("username"));
+				name.add(name);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return users;
+		return user;
 	}
 	
 	public Name getUserById(int userId) {

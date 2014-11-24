@@ -9,27 +9,29 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abc.model.*;
+
+
 /**
- * Servlet implementation class AddressServlet
+ * Servlet implementation class CredentialsServlet
  */
-@WebServlet("/AddressServlet")
-public class AddressServlet extends HttpServlet {
+@WebServlet("/CredentialsServlet")
+public class CredentialsServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	private String cancelPage = "/index.jsp";
-    private String previousPage = "/name.jsp";
-    private String nextPage = "/phone.jsp";
-    
-    public AddressServlet() {
+    private String previousPage = "/email.jsp";
+    private String nextPage = "/customerConfirm.jsp";
+
+    public CredentialsServlet() {
         super();
-      
+        
     }
 
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		doPost(request, response);
+        doPost(request, response);
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-		boolean next = (request.getParameter("next") != null);
+        boolean next = (request.getParameter("next") != null);
         boolean previous = (request.getParameter("previous") != null);        
         boolean cancel = (request.getParameter("cancel") != null);
         String forwardedPage = 
@@ -39,16 +41,17 @@ public class AddressServlet extends HttpServlet {
             forwardedPage = cancelPage;
         } else {
             synchronized(request.getSession() ) {
-                Address address = (Address) request.getSession().getAttribute("address");            
-                if (null == address) {
-                    address = new Address();
-                    request.getSession().setAttribute("address", address);
-                }    
-                address.setStreet(request.getParameter("street"));
-                address.setCity(request.getParameter("city"));
-                address.setState(request.getParameter("state"));
-                address.setZipCode(request.getParameter("zipCode"));
-               
+                Credentials credentials = (Credentials) request.getSession().getAttribute("credentials");            
+                if (null == credentials) {
+                	credentials = new Credentials();
+                    request.getSession().setAttribute("credentials", credentials);
+                }
+                credentials.setAnnDate1(request.getParameter("annDate1"));
+                credentials.setAnnDesc1(request.getParameter("annDesc1"));
+                credentials.setAnnDate2(request.getParameter("annDate2"));
+                credentials.setAnnDesc2(request.getParameter("annDesc2"));
+                credentials.setAnnDate3(request.getParameter("annDate3"));
+                credentials.setAnnDesc3(request.getParameter("annDesc3"));
                 
             }        
         }
@@ -57,7 +60,4 @@ public class AddressServlet extends HttpServlet {
 
 	}
 
-
-	}
-
-
+}

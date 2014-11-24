@@ -28,8 +28,8 @@ public class Name {
 	public String getUserName() {
 		return userName;
 	}
-	public void setUserName(String username) {
-		this.userName = username;
+	public void setUserName(String userName) {
+		this.userName = userName;
 	}
 	@Override
 	public String toString() {

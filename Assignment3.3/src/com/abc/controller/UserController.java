@@ -12,7 +12,7 @@ import com.abc.model.Name;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/userCreate.jsp";
+    private static String INSERT_OR_EDIT = "/name.jsp";
     private static String LIST_USER = "/viewAllUsers.jsp";
     private UserService dao;
 
