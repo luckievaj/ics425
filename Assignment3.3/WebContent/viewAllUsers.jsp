@@ -21,17 +21,17 @@
             </tr>
         </thead>
         <tbody>
-            <c:forEach items="${users}" var="user" >
+            <c:forEach items="${name}" var="name" >
             
                 <tr>
-                    <td><c:out value="${user.userid}" /></td>
-                    <td><c:out value="${user.firstName}" /></td>
-                    <td><c:out value="${user.lastName}" /></td>
-                    <td><c:out value="${user.userName}" /></td>
+                    <td><c:out value="${name.userId}" /></td>
+                    <td><c:out value="${name.firstName}" /></td>
+                    <td><c:out value="${name.lastName}" /></td>
+                    <td><c:out value="${name.userName}" /></td>
                     
                     
-                    <td><a href="UserController?action=edit&userId=<c:out value="${user.userid}"/>">Update</a></td>
-                    <td><a href="UserController?action=delete&userId=<c:out value="${user.userid}"/>">Delete</a></td>
+                    <td><a href="UserController?action=edit&nameId=<c:out value="${name.userId}"/>">Update</a></td>
+                    <td><a href="UserController?action=delete&nameId=<c:out value="${name.userId}"/>">Delete</a></td>
                 </tr>
             </c:forEach>
         </tbody>

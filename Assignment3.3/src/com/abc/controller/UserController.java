@@ -9,7 +9,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import com.abc.dao.UserService;
-import com.abc.model.ContactName;
 import com.abc.model.Name;
 
 public class UserController extends HttpServlet {

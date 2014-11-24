@@ -13,7 +13,7 @@
 </head>
 <body>
   
-    <form method="POST" action='NameServlet' name="AddName">
+    <form method="POST" action='UserController' name="AddName">
         First Name : <input type="text" name="firstName"
             value="<c:out value="${name.firstName}" />" /> <br /> 
         Last Name : <input type="text" name="lastName"
