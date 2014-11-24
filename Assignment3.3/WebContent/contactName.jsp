@@ -15,9 +15,9 @@
   
     <form method="POST" action='ContactNameServlet' name="AddName">
         First Name : <input type="text" name="firstName"
-            value="<c:out value="${name.firstName}" />" /> <br /> 
+            value="<c:out value="${ContactName.firstName}" />" /> <br /> 
         Last Name : <input type="text" name="lastName"
-            value="<c:out value="${name.lastName}" />" /> <br /> 
+            value="<c:out value="${ContactName.lastName}" />" /> <br /> 
                           
                   <input type="submit" name="next" value="Next" />
                     <input type="submit" name="cancel" value="Cancel" />
