@@ -26,8 +26,12 @@ public class ContactName {
 	}
 	@Override
 	public String toString() {
-		return "User [contactId=" + contactId + ", firstName=" + firstName
+		return "contactName [contactId=" + contactId + ", firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
+	}
+	public boolean validate() {
+		// TODO Auto-generated method stub
+		return false;
 	}
 	
 	

@@ -38,8 +38,8 @@ public class AuthenticationFilter implements Filter {
 		boolean authenticated = false;
 		String forwardPage = "/index.jsp";
 		synchronized (session) {
-			if (req.getRequestURI().contains("contactName.jsp")) {
-				if (null != session.getAttribute("contactName")) {
+		//	if (req.getRequestURI().contains("contactConfirm.jsp")) {
+			 if (null != session.getAttribute("contactName")) {
 					message = "You must enter Contact information.";
 					authenticated = ((ContactName) session
 							.getAttribute("contactName")).validate();
@@ -85,7 +85,7 @@ public class AuthenticationFilter implements Filter {
 				}
 			}
 		}
-	}
+//	}
 
     public void init(FilterConfig fConfig) throws ServletException {
         fc = fConfig;
