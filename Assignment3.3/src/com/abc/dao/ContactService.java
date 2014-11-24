@@ -45,16 +45,15 @@ public class ContactService {
 		}
 	}
 	
-	public void updateContact(Name name) {
+	public void updateContact(ContactName contactName) {
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update contact set first_name=?, last_name=?, contact_name=?" +
+					.prepareStatement("update contact set first_name=?, last_name=?" +
 							"where contact_id=?");
 			// Parameters start with 1
-			preparedStatement.setString(1, name.getFirstName());
-			preparedStatement.setString(2, name.getLastName());
-			preparedStatement.setString(3, name.getContactName());
-			preparedStatement.setInt(4, name.getContactId());
+			preparedStatement.setString(1, contactName.getFirstName());
+			preparedStatement.setString(2, contactName.getLastName());
+			preparedStatement.setInt(3, contactName.getContactId());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -62,27 +61,27 @@ public class ContactService {
 		}
 	}
 
-	public List<Name> getAllContacts() {
-		List<Name> nameList = new ArrayList<Name>();
+	public List<ContactName> getAllContacts() {
+		List<ContactName> contactList = new ArrayList<ContactName>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select * from contact");
 			while (rs.next()) {
-				Name name = new Name();
-				name.setContactId(rs.getInt("contactid"));
-				name.setFirstName(rs.getString("firstname"));
-				name.setLastName(rs.getString("lastname"));
-				nameList.add(name);
+				ContactName contactName = new ContactName();
+				contactName.setContactId(rs.getInt("contact_id"));
+				contactName.setFirstName(rs.getString("first_name"));
+				contactName.setLastName(rs.getString("last_name"));
+				contactList.add(contactName);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return nameList;
+		return contactList;
 	}
 	
-	public Name getContactById(int contactId) {
-		Name contact = new Name();
+	public ContactName getContactById(int contactId) {
+		ContactName contact = new ContactName();
 		try {
 			PreparedStatement preparedStatement = connection.
 					prepareStatement("select * from contact where contact_id=?");
@@ -90,9 +89,9 @@ public class ContactService {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				contact.setContactId(rs.getInt("contactid"));
-				contact.setFirstName(rs.getString("firstname"));
-				contact.setLastName(rs.getString("lastname"));
+				contact.setContactId(rs.getInt("contact_id"));
+				contact.setFirstName(rs.getString("first_name"));
+				contact.setLastName(rs.getString("last_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
