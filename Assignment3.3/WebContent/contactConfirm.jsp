@@ -10,9 +10,9 @@
 <body>
 		<h1>New Contact details Confirmation</h1>
 		<h2>Name</h2>
-		<p>First Name: ${name.firstName }</p>
-		<p>Last Name: ${name.lastName }</p>
-		<p>Username: ${name.userName }</p>
+		<p>First Name: ${cName.firstName }</p>
+		<p>Last Name: ${cName.lastName }</p>
+		
 		<h2>Address</h2>
 		<p>Street: ${address.street}</p>
 		<p>City:${address.city}</p>
@@ -32,7 +32,7 @@
 
 
 		<button onclick="location.href = 'credentials.jsp';" id="backBtn">Back</button>
-		<button onclick="location.href = 'customerViewAll.jsp';"
+		<button onclick="location.href = 'contactViewAll.jsp';"
 			id="submitBtn">Submit</button>
 		<button onclick="location.href = 'index.jsp';" id="cancelBtn">Cancel</button>
 </body>
