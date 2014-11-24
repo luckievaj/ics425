@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.dao.CustomerService;
+import com.abc.dao.ContactService;
 import com.abc.model.Name;
 import com.abc.model.Address;
 import com.abc.model.Phone;

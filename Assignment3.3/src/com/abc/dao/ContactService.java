@@ -7,18 +7,18 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.abc.model.Name;
+import com.abc.model.*;
 import com.abc.util.DbUtil;
 
-public class CustomerService {
+public class ContactService {
 
 	private Connection connection;
 
-	public CustomerService() {
+	public ContactService() {
 		connection = DbUtil.getConnection();
 	}
 
-	public void addContact(Name name) {
+	public void addContact(ContactName name) {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into contact (first_name,last_name) values (?, ?)");
