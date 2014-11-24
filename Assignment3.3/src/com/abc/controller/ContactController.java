@@ -1,10 +1,6 @@
 package com.abc.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.Date;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -19,7 +15,7 @@ import com.abc.model.*;
 public class ContactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/contact.jsp";
-    private static String LIST_USER = "/listContactName.jsp";
+    private static String LIST_USER = "/addresss.jsp";
     private ContactService dao;
 
     public ContactController() {
