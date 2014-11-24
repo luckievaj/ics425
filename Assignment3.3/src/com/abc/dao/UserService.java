@@ -7,7 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-import com.abc.model.ContactName;
+import com.abc.model.Name;
 import com.abc.util.DbUtil;
 
 public class UserService {
@@ -18,7 +18,7 @@ public class UserService {
 		connection = DbUtil.getConnection();
 	}
 
-	public void addUser(ContactName name) {
+	public void addUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into user (first_name,last_name,user_name) values (?, ?, ?)");
@@ -46,7 +46,7 @@ public class UserService {
 		}
 	}
 	
-	public void updateUser(ContactName name) {
+	public void updateUser(Name name) {
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("update user set first_name=?, last_name=?, user_name=?" +
@@ -55,7 +55,7 @@ public class UserService {
 			preparedStatement.setString(1, name.getFirstName());
 			preparedStatement.setString(2, name.getLastName());
 			preparedStatement.setString(3, name.getUserName());
-			preparedStatement.setInt(4, name.getUserid());
+			preparedStatement.setInt(4, name.getUserId());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -63,17 +63,17 @@ public class UserService {
 		}
 	}
 
-	public List<ContactName> getAllUsers() {
-		List<ContactName> nameList = new ArrayList<ContactName>();
+	public List<Name> getAllUsers() {
+		List<Name> nameList = new ArrayList<Name>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select * from user");
 			while (rs.next()) {
-				ContactName name = new ContactName();
-				name.setUserid(rs.getInt("userid"));
-				name.setFirstName(rs.getString("firstname"));
-				name.setLastName(rs.getString("lastname"));
-				name.setUserName(rs.getString("username"));
+				Name name = new Name();
+				name.setUserId(rs.getInt("userid"));
+				name.setFirstName(rs.getString("first_name"));
+				name.setLastName(rs.getString("last_name"));
+				name.setUserName(rs.getString("user_name"));
 				nameList.add(name);
 			}
 		} catch (SQLException e) {
@@ -83,8 +83,8 @@ public class UserService {
 		return nameList;
 	}
 	
-	public ContactName getUserById(int userId) {
-		ContactName user = new ContactName();
+	public Name getUserById(int userId) {
+		Name user = new Name();
 		try {
 			PreparedStatement preparedStatement = connection.
 					prepareStatement("select * from user where user_id=?");
@@ -92,10 +92,10 @@ public class UserService {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				user.setUserid(rs.getInt("userid"));
-				user.setFirstName(rs.getString("firstname"));
-				user.setLastName(rs.getString("lastname"));
-				user.setUserName(rs.getString("username"));
+				user.setUserId(rs.getInt("user_id"));
+				user.setFirstName(rs.getString("first_name"));
+				user.setLastName(rs.getString("last_name"));
+				user.setUserName(rs.getString("user_name"));
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

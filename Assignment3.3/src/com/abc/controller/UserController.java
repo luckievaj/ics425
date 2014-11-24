@@ -1,6 +1,7 @@
 package com.abc.controller;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -9,6 +10,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.abc.dao.UserService;
 import com.abc.model.ContactName;
+import com.abc.model.Name;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
@@ -33,8 +35,8 @@ public class UserController extends HttpServlet {
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
             int userId = Integer.parseInt(request.getParameter("userId"));
-            ContactName user = dao.getUserById(userId);
-            request.setAttribute("user", user);
+            Name name = dao.getUserById(userId);
+            request.setAttribute("user", name);
         } else if (action.equalsIgnoreCase("listUser")){
             forward = LIST_USER;
             request.setAttribute("users", dao.getAllUsers());
@@ -47,19 +49,19 @@ public class UserController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ContactName user = new ContactName();
-        user.setFirstName(request.getParameter("firstName"));
-        user.setLastName(request.getParameter("lastName"));
-        user.setUserName(request.getParameter("userName"));
+        Name name = new Name();
+        name.setFirstName(request.getParameter("firstName"));
+        name.setLastName(request.getParameter("lastName"));
+        name.setUserName(request.getParameter("userName"));
         String userid = request.getParameter("userid");
         if(userid == null || userid.isEmpty())
         {
-            dao.addUser(user);
+            dao.addUser(name);
         }
         else
         {
-            user.setUserid(Integer.parseInt(userid));
-            dao.updateUser(user);
+            name.setUserId(Integer.parseInt(userid));
+            dao.updateUser(name);
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
         request.setAttribute("users", dao.getAllUsers());
