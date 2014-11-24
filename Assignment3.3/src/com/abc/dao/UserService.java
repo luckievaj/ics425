@@ -73,7 +73,7 @@ public class UserService {
 				user.setUserid(rs.getInt("userid"));
 				user.setFirstName(rs.getString("firstname"));
 				user.setLastName(rs.getString("lastname"));
-				user.setUserName(rs.getString("email"));
+				user.setUserName(rs.getString("userName"));
 				userList.add(user);
 			}
 		} catch (SQLException e) {
@@ -92,7 +92,7 @@ public class UserService {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				user.setUserid(rs.getInt("userid"));
+				user.setUserid(rs.getInt("userId"));
 				user.setFirstName(rs.getString("firstname"));
 				user.setLastName(rs.getString("lastname"));
 				user.setUserName(rs.getString("userName"));

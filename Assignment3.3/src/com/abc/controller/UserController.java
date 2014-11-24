@@ -10,13 +10,13 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.dao.UserService;
-import com.abc.model.User;
+import com.abc.dao.*;
+import com.abc.model.*;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String INSERT_OR_EDIT = "/user.jsp";
-    private static String LIST_USER = "/listUser.jsp";
+    private static String LIST_USER = "/viewAllUsers.jsp";
     private UserService dao;
 
     public UserController() {
@@ -32,7 +32,7 @@ public class UserController extends HttpServlet {
             int userId = Integer.parseInt(request.getParameter("userId"));
             dao.deleteUser(userId);
             forward = LIST_USER;
-            request.setAttribute("users", dao.getAllUsers());    
+            request.setAttribute("userList", dao.getAllUsers());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
             int userId = Integer.parseInt(request.getParameter("userId"));
@@ -40,7 +40,7 @@ public class UserController extends HttpServlet {
             request.setAttribute("user", user);
         } else if (action.equalsIgnoreCase("listUser")){
             forward = LIST_USER;
-            request.setAttribute("users", dao.getAllUsers());
+            request.setAttribute("userList", dao.getAllUsers());
         } else {
             forward = INSERT_OR_EDIT;
         }
