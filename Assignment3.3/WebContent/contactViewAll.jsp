@@ -15,7 +15,7 @@
                 <th>Contact Id</th>
                 <th>First Name</th>
                 <th>Last Name</th>
-                <th>Street</th>
+ <!--           <th>Street</th>
                 <th>City</th>
                 <th>State</th>
                 <th>Zip Code</th>
@@ -29,7 +29,7 @@
                 <th>Description</th>
                 <th>Anniversary 3</th>
                 <th>Description</th>
-                
+ -->               
                 <th colspan=2>Action</th>
             </tr>
         </thead>
@@ -40,7 +40,7 @@
                     <td><c:out value="${contactName.contactId}" /></td>
                     <td><c:out value="${contactName.firstName}" /></td>
                     <td><c:out value="${contactName.lastName}" /></td>
-                    <td><c:out value="${address.street}" /></td>
+   <!--             <td><c:out value="${address.street}" /></td>
                     <td><c:out value="${address.city}" /></td>
                     <td><c:out value="${address.state}" /></td>
                     <td><c:out value="${address.zipCode}" /></td>
@@ -54,7 +54,7 @@
                     <td><c:out value="${credentials.annDesc2}" /></td>
                     <td><c:out value="${credentials.annDate3}" /></td>
                     <td><c:out value="${credentials.annDesc3}" /></td>
-                   
+   -->                 
                     <td><a href="ContactController?action=edit&contactId=<c:out value="${contactName.contactId}"/>">Update</a></td>
                     <td><a href="ContactController?action=delete&contactId=<c:out value="${contactName.contactId}"/>">Delete</a></td>
                 </tr>
