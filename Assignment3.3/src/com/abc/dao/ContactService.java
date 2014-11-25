@@ -7,6 +7,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+
 import com.abc.model.*;
 import com.abc.util.DbUtil;
 
@@ -199,41 +200,12 @@ public class ContactService {
 			ResultSet rs = statement.executeQuery("select * from contact");
 			while (rs.next()) {
 				ContactName contactName = new ContactName();
+				
 				contactName.setContactId(rs.getInt("contact_id"));
 				contactName.setFirstName(rs.getString("first_name"));
 				contactName.setLastName(rs.getString("last_name"));
-				contactList.add(contactName);
-			} while (rs.next()) {
-				Address address = new Address();
-				address.setContactId(rs.getInt("contact_id"));
-				address.setStreet(rs.getString("street"));
-				address.setCity(rs.getString("city"));
-				address.setState(rs.getString("state"));
-				address.setZipCode(rs.getString("zipCode"));
-				contactList.add(address); // NEED TO BE FIXED
-			} while (rs.next()) {
-				Phone phone = new Phone();
-				phone.setContactId(rs.getInt("contact_id"));
-				phone.setPhone1(rs.getString("phone1"));
-				phone.setPhone2(rs.getString("phone2"));
-				contactList.add(phone); // NEED TO BE FIXED
-			} while (rs.next()) {
-				Email email = new Email();
-				email.setContactId(rs.getInt("contact_id"));
-				email.setEmail1(rs.getString("email1"));
-				email.setEmail2(rs.getString("email2"));
-				contactList.add(email); // NEED TO BE FIXED
-			} while (rs.next()) {
-				Credentials cred = new Credentials();
-				cred.setContactId(rs.getInt("contact_id"));
-				cred.setAnnDate1(rs.getString("anndate1"));
-				cred.setAnnDesc1(rs.getString("anndesc1"));
-				cred.setAnnDate2(rs.getString("anndate2"));
-				cred.setAnnDesc2(rs.getString("anndesc2"));
-				cred.setAnnDate3(rs.getString("anndate3"));
-				cred.setAnnDesc3(rs.getString("anndesc3"));
-				contactList.add(cred); // NEED TO BE FIXED
 				
+				contactList.add(contactName);
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -242,18 +214,42 @@ public class ContactService {
 		return contactList;
 	}
 	
-	public ContactName getContactById(int contactId) {
-		ContactName contact = new ContactName();
+	public Contact getContactById(int contactId) {
+		Contact contact = new Contact();
 		try {
 			PreparedStatement preparedStatement = connection.
-					prepareStatement("select * from contact where contact_id=?");
+					prepareStatement("SELECT * FROM CONTACT C INNER JOIN ADDRESS A ON C.CONTACT_ID = A.CONTACT_ID INNER JOIN PHONE P ON C.CONTACT_ID=P.CONTACT_ID INNER JOIN EMAIL E ON C.CONTACT_ID=E.CONTACT_ID INNER JOIN CREDENTIALS X ON C.CONTACT_ID = X.CONTACT_ID");
 			preparedStatement.setInt(1, contactId);
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				contact.setContactId(rs.getInt("contact_id"));
-				contact.setFirstName(rs.getString("first_name"));
-				contact.setLastName(rs.getString("last_name"));
+				Contact cont = new Contact();
+				Address addr  = new Address();
+				ContactName name = new ContactName();
+				Credentials cred = new Credentials();
+				Phone phone = new Phone();
+				Email email = new Email();
+				
+				name.setFirstName(rs.getString("FIRST_NAME"));
+				name.setLastName(rs.getString("LAST_NAME"));
+				addr.setStreet(rs.getString("STREET"));
+				addr.setCity(rs.getString("CITY"));
+				addr.setState(rs.getString("STATE"));
+				addr.setZipCode(rs.getString("ZIPCODE"));
+				cred.setAnnDate1(rs.getString("ANN_DATE1"));
+				cred.setAnnDate1(rs.getString("ANN_DESC1"));
+				cred.setAnnDate2(rs.getString("ANN_DATE2"));
+				cred.setAnnDate2(rs.getString("ANN_DESC2"));
+				cred.setAnnDate3(rs.getString("ANN_DATE3"));
+				cred.setAnnDate3(rs.getString("ANN_DESC3"));
+				phone.setPhone1(rs.getString("PHONE1"));
+				phone.setPhone2(rs.getString("PHONE2"));
+				email.setEmail1(rs.getString("EMAIL1"));
+				email.setEmail2(rs.getString("EMAIL2"));
+				cont.setAddress(addr);
+				cont.setCredentials(cred);
+				cont.setPhone(phone);
+				cont.setEmail(email);
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

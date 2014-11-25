@@ -29,11 +29,18 @@
 		<p>Description: ${credentials.annDesc2}</p>
 		<p>Anniversary 3: ${credentials.annDate3}</p>
 		<p>Description: ${credentials.annDesc3}</p>
+<form>
+ 		<input type="submit" name="previous" value="Previous" /> 
+ 		<input type="submit" name="confirm" value="Confirm" /> 
+		<input type="submit" name="cancel" value="Cancel" />
+</form>	
 
-
+<!-- 
 		<button onclick="location.href = 'credentials.jsp';" id="backBtn">Back</button>
 		<button onclick="location.href = 'contactViewAll.jsp';"
 			id="submitBtn">Submit</button>
 		<button onclick="location.href = 'index.jsp';" id="cancelBtn">Cancel</button>
+		
+ -->		
 </body>
 </html>
