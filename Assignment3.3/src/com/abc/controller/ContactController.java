@@ -1,6 +1,7 @@
 package com.abc.controller;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -35,7 +36,7 @@ public class ContactController extends HttpServlet {
         } else if (action.equalsIgnoreCase("edit")){
             forward = INSERT_OR_EDIT;
             int contactId = Integer.parseInt(request.getParameter("contactId"));
-            ContactName contact = dao.getContactById(contactId);
+            Contact contact = dao.getContactById(contactId);
             request.setAttribute("contact", contact);
         } else if (action.equalsIgnoreCase("listContactName")){
             forward = LIST_USER;
