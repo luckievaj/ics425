@@ -8,7 +8,7 @@
 </head>
 <body>
 	<center>
-		<h1>Database Management Console </h1>
+		<h1>Database Management Console 2222</h1>
 
 
 		<form action="viewAllUsers.jsp" method="post">
