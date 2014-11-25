@@ -2,6 +2,7 @@ package com.abc.model;
 
 public class Email {
 
+	private int contactId;
 	private String email1;
 	private String email2;
 	
@@ -16,6 +17,12 @@ public class Email {
 	}
 	public void setEmail2(String email2) {
 		this.email2 = email2;
+	}
+	public int getContactId() {
+		return contactId;
+	}
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
 	}
 	
 	

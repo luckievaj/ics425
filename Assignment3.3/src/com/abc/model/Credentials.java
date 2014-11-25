@@ -1,6 +1,7 @@
 package com.abc.model;
 
 public class Credentials {
+	private int contactId;
 	private String annDate1;
 	private String annDesc1;
 	private String annDate2;
@@ -40,6 +41,13 @@ public class Credentials {
 		return (!isEmpty(annDate1) && !isEmpty(annDesc1)||!isEmpty(annDate2) && !isEmpty(annDesc2)||!isEmpty(annDate3) && !isEmpty(annDesc3)); 
 	}
 	private boolean isEmpty(String s) { return (s == null || s.length() == 0); }
+	
+	public int getContactId() {
+		return contactId;
+	}
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
+	}
 }
 
 

@@ -1,6 +1,7 @@
 package com.abc.model;
 
 public class Address {
+	private int contactId;
 	private String street;
     private String city;
     private String state;
@@ -20,6 +21,12 @@ public class Address {
         && !isEmpty(zipCode)); 
     }
     private boolean isEmpty(String s) { return (s == null || s.length() == 0); }
+	public int getContactId() {
+		return contactId;
+	}
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
+	}
 }
 
 

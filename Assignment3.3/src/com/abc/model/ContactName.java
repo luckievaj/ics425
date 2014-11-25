@@ -26,7 +26,7 @@ public class ContactName {
 	}
 	@Override
 	public String toString() {
-		return "User [contactId=" + contactId + ", firstName=" + firstName
+		return "Contact [contactId=" + contactId + ", firstName=" + firstName
 				+ ", lastName=" + lastName + "]";
 	}
 	

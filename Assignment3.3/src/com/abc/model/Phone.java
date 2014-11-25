@@ -1,6 +1,8 @@
 package com.abc.model;
 
 public class Phone {
+	
+	private int contactId;
 	private String phone1;
     private String phone2;
 
@@ -15,4 +17,10 @@ public class Phone {
       return (!isEmpty(phone1) && !isEmpty(phone2)); 
     }
     private boolean isEmpty(String s) { return (s == null || s.length() == 0); }
+	public int getContactId() {
+		return contactId;
+	}
+	public void setContactId(int contactId) {
+		this.contactId = contactId;
+	}
 }
