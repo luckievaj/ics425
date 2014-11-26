@@ -223,19 +223,18 @@ public class ContactService {
 			ResultSet rs = preparedStatement.executeQuery();
 			
 			if (rs.next()) {
-				Contact cont = new Contact();
-				Address addr  = new Address();
-				ContactName name = new ContactName();
-				Credentials cred = new Credentials();
-				Phone phone = new Phone();
-				Email email = new Email();
+//				Address addr  = new Address();
+//				ContactName name = new ContactName();
+//				Credentials cred = new Credentials();
+//				Phone phone = new Phone();
+//				Email email = new Email();
 				
-				name.setFirstName(rs.getString("FIRST_NAME"));
-				name.setLastName(rs.getString("LAST_NAME"));
-				addr.setStreet(rs.getString("STREET"));
-				addr.setCity(rs.getString("CITY"));
-				addr.setState(rs.getString("STATE"));
-				addr.setZipCode(rs.getString("ZIPCODE"));
+				contact.setFirstName(rs.getString("FIRST_NAME"));
+				contact.setLastName(rs.getString("LAST_NAME"));
+				contact.setStreet(rs.getString("STREET"));
+				contact.setCity(rs.getString("CITY"));
+				contact.setState(rs.getString("STATE"));
+				contact.setZipCode(rs.getString("ZIPCODE"));
 				cred.setAnnDate1(rs.getString("ANN_DATE1"));
 				cred.setAnnDate1(rs.getString("ANN_DESC1"));
 				cred.setAnnDate2(rs.getString("ANN_DATE2"));
@@ -246,10 +245,8 @@ public class ContactService {
 				phone.setPhone2(rs.getString("PHONE2"));
 				email.setEmail1(rs.getString("EMAIL1"));
 				email.setEmail2(rs.getString("EMAIL2"));
-				cont.setAddress(addr);
-				cont.setCredentials(cred);
-				cont.setPhone(phone);
-				cont.setEmail(email);
+				
+				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();

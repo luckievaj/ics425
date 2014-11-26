@@ -3,7 +3,6 @@ package com.abc.controller;
 import java.io.IOException;
 import java.text.ParseException;
 
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +14,9 @@ import com.abc.model.*;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/user.jsp";
+    private static String INSERT = "/user.jsp";
+    private static String VIEW = "/userDetails.jsp";
+    private static String EDIT = "/userEdit.jsp";
     private static String LIST_USER = "/viewAllUsers.jsp";
     private UserService dao;
 
@@ -32,17 +33,22 @@ public class UserController extends HttpServlet {
             int userId = Integer.parseInt(request.getParameter("userid"));
             dao.deleteUser(userId);
             forward = LIST_USER;
-            request.setAttribute("userList", dao.getAllUsers());    
+            request.setAttribute("userList", UserService.getAllUsers());    
         } else if (action.equalsIgnoreCase("edit")){
-            forward = INSERT_OR_EDIT;
+            forward = EDIT;
             int userId = Integer.parseInt(request.getParameter("userid"));
             User user = dao.getUserById(userId);
             request.setAttribute("user", user);
         } else if (action.equalsIgnoreCase("listUser")){
             forward = LIST_USER;
-            request.setAttribute("userList", dao.getAllUsers());
-        } else {
-            forward = INSERT_OR_EDIT;
+            request.setAttribute("userList", UserService.getAllUsers());
+        } else if (action.equalsIgnoreCase("view")){
+        	forward = VIEW;
+            int userId = Integer.parseInt(request.getParameter("userid"));
+            User user = dao.getUserById(userId);
+            request.setAttribute("user", user);
+        }else {
+            forward = INSERT;
         }
 
         RequestDispatcher view = request.getRequestDispatcher(forward);
@@ -67,7 +73,7 @@ public class UserController extends HttpServlet {
             dao.updateUser(user);
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
-        request.setAttribute("userList", dao.getAllUsers());
+        request.setAttribute("userList", UserService.getAllUsers());
         view.forward(request, response);
     }
 }

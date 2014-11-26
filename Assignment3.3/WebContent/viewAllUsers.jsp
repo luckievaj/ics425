@@ -26,31 +26,51 @@
 
 			}
 		%>
-		<table>
-			<tr>
-				<td>User ID</td>
-				<td>First Name</td>
-				<td>Last Name</td>
-				<td>User Name</td>
-
+		<table border=1>
+			<thead>
+				<tr>
+					<th>User ID</th>
+					<th>First Name</th>
+					<th>Last Name</th>
+					<th>User Name</th>
+				</tr>
+			</thead>
+			<tbody>
 				<%
 					for (User usr : users) {
 				%>
-			
-			<tr>
-				<td><%=usr.getUserid()%></td>
-				<td><%=usr.getFirstName()%></td>
-				<td><%=usr.getLastName()%></td>
-				<td><%=usr.getUserName()%></td>
-			</tr>
-			<%
-				}
-			%>
+
+				<tr>
+					<td><%=usr.getUserid()%></td>
+					<td><%=usr.getFirstName()%></td>
+					<td><%=usr.getLastName()%></td>
+					<td><%=usr.getUserName()%></td>
+
+					<td><a
+						href="UserController?action=view&userid=<c:out value="${user.userid}"/>">View</a></td>
+					<td><a
+						href="UserController?action=edit&userid=<c:out value="${user.userid}"/>">Update</a></td>
+					<td><a
+						href="UserController?action=delete&userid=<c:out value="${user.userid}"/>">Delete</a></td>
+
+				</tr>
+				<%
+					}
+				%>
+			</tbody>
 		</table>
+
+		<!-- 		
 		<button onclick="location.href = 'index.jsp';" id="home"
 			class="float-left submit-button">Home</button>
 		<button onclick="location.href = 'user.jsp';" id="userCreate"
 			class="float-left submit-button">Create a New User</button>
+ -->
+
 	</center>
+	<p>
+		<a href="UserController?action=insert">Add User</a>
+	</p>
+
 </body>
 </html>
