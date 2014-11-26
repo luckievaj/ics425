@@ -1,8 +1,6 @@
 package com.abc.controller;
 
 import java.io.IOException;
-import java.text.ParseException;
-
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -15,7 +13,7 @@ import com.abc.model.*;
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String INSERT = "/user.jsp";
-    private static String VIEW = "/userDetails.jsp";
+    private static String VIEW = "/userDetail.jsp";
     private static String EDIT = "/userEdit.jsp";
     private static String LIST_USER = "/viewAllUsers.jsp";
     private UserService dao;

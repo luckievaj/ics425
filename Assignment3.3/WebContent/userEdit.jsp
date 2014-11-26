@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-Test User Details
+Test User Edit
 </body>
 </html>

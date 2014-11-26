@@ -47,11 +47,11 @@
 					<td><%=usr.getUserName()%></td>
 
 					<td><a
-						href="UserController?action=view&userid=<c:out value="${user.userid}"/>">View</a></td>
+						href="UserController?action=view&userid=<c:out value="<%=usr.getUserid()%>"/>">View</a></td>
 					<td><a
-						href="UserController?action=edit&userid=<c:out value="${user.userid}"/>">Update</a></td>
+						href="UserController?action=edit&userid=<c:out value="<%=usr.getUserid()%>"/>">Edit</a></td>
 					<td><a
-						href="UserController?action=delete&userid=<c:out value="${user.userid}"/>">Delete</a></td>
+						href="UserController?action=delete&userid=<c:out value="<%=usr.getUserid()%>"/>">Delete</a></td>
 
 				</tr>
 				<%
