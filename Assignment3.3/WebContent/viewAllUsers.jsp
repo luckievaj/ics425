@@ -17,6 +17,7 @@
 
 <body>
 	<center>
+
 		<h1>List of All Users</h1>
 		<%
 			List<User> users = (List<User>) request.getAttribute("users");
@@ -57,6 +58,7 @@
 				<%
 					}
 				%>
+
 			</tbody>
 		</table>
 
@@ -66,11 +68,11 @@
 		<button onclick="location.href = 'user.jsp';" id="userCreate"
 			class="float-left submit-button">Create a New User</button>
  -->
-
+		<p>
+			<a href="UserController?action=insert">Add User</a>
+		</p>
 	</center>
-	<p>
-		<a href="UserController?action=insert">Add User</a>
-	</p>
+
 
 </body>
 </html>

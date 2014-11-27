@@ -73,5 +73,6 @@ public class UserController extends HttpServlet {
         RequestDispatcher view = request.getRequestDispatcher(LIST_USER);
         request.setAttribute("userList", UserService.getAllUsers());
         view.forward(request, response);
+        
     }
 }
