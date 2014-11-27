@@ -1,6 +1,7 @@
 package com.abc.controller;
 
 import java.io.IOException;
+
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -57,7 +58,8 @@ public class UserController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        User user = new User();
+    
+    	User user = new User();
         String userid = request.getParameter("userid");
         user.setFirstName(request.getParameter("firstName"));
         user.setLastName(request.getParameter("lastName"));

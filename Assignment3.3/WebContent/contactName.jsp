@@ -15,7 +15,7 @@
   
     <form method="POST" action='ContactNameServlet' name="AddName">
     <p style="color:red">${message}</p>
-    	Contact ID : <input type= "text" readonly = "readonly" name="contactId"
+    	<input type= "hidden" readonly = "readonly" name="contactId"
     		value="<c:out value="${contact.contactId}" />" /> <br />
         First Name : <input type="text" name="firstName"
             value="<c:out value="${contactName.firstName}" />" /> <br /> 

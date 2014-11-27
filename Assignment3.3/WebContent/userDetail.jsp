@@ -6,21 +6,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Viewing User Detais</title>
+<title>Viewing User Details</title>
 </head>
 <body>
 	<form method="GET" action='UserController' name="frmAddUser">
 		<p style="color: red">${message}</p>
-		User ID : <input type="text" readonly="readonly" name="userid"
+		<input type="text" readonly="readonly" name="userid"
 			value="<c:out value="${user.userid}" />" /> <br /> First Name : <input
-			type="text" name="firstName"
+			type="text" readonly="readonly" name="firstName"
 			value="<c:out value="${user.firstName}" />" /> <br /> Last Name : <input
-			type="text" name="lastName"
+			type="text" readonly="readonly" name="lastName"
 			value="<c:out value="${user.lastName}" />" /> <br /> Username : <input
-			type="text" name="userName"
+			type="text" readonly="readonly" name="userName"
 			value="<c:out value="${user.userName}" />" /> <br /> 
 			
-			<input type="submit" value="Return" />
+			<input type="submit" value="Previous" />
 			<input type="submit" value="Edit" />
 			
 	</form>
