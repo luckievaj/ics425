@@ -18,9 +18,9 @@
 		<p>Last Name: ${contactName.lastName } </p>
 		
 		
-  
-    <form method="POST" action='AddressServlet' name="AddAddress">
-    <p style="color:red">${message}</p>
+  <form>
+<!--     <form method="POST" action='AddressServlet' name="AddAddress">
+ -->    <p style="color:red">${message}</p>
         Street : <input type="text" name="street"
             value="<c:out value="${address.street}" />" /> <br /> 
         City : <input type="text" name="city"

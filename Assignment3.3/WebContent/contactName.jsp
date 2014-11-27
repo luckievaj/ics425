@@ -15,13 +15,15 @@
   
     <form method="POST" action='ContactNameServlet' name="AddName">
     <p style="color:red">${message}</p>
+    	Contact ID : <input type= "text" readonly = "readonly" name="contactId"
+    		value="<c:out value="${contact.contactId}" />" /> <br />
         First Name : <input type="text" name="firstName"
             value="<c:out value="${contactName.firstName}" />" /> <br /> 
         Last Name : <input type="text" name="lastName"
             value="<c:out value="${contactName.lastName}" />" /> <br /> 
                           
-                  <input type="submit" name="next" value="Next" />
-                    <input type="submit" name="cancel" value="Cancel" />
+     <input type="submit" name="next" value="Next" />
+     <input type="submit" name="cancel" value="Cancel" />
     </form>
 </body>
 </html>

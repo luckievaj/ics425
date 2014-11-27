@@ -12,6 +12,7 @@ import com.abc.model.*;
 
 public class UserController extends HttpServlet {
     private static final long serialVersionUID = 1L;
+    private static String CANCEL = "/index.jsp"; 
     private static String INSERT = "/user.jsp";
     private static String VIEW = "/userDetail.jsp";
     private static String EDIT = "/userEdit.jsp";
@@ -40,6 +41,8 @@ public class UserController extends HttpServlet {
         } else if (action.equalsIgnoreCase("listUser")){
             forward = LIST_USER;
             request.setAttribute("userList", UserService.getAllUsers());
+        } else if (action.equalsIgnoreCase("cancel")){
+            forward = CANCEL;
         } else if (action.equalsIgnoreCase("view")){
         	forward = VIEW;
             int userId = Integer.parseInt(request.getParameter("userid"));
