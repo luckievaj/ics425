@@ -200,11 +200,9 @@ public class ContactService {
 			ResultSet rs = statement.executeQuery("select * from contact");
 			while (rs.next()) {
 				ContactName contactName = new ContactName();
-				
 				contactName.setContactId(rs.getInt("contact_id"));
 				contactName.setFirstName(rs.getString("first_name"));
-				contactName.setLastName(rs.getString("last_name"));
-				
+				contactName.setLastName(rs.getString("last_name"));	
 				contacts.add(contactName);
 			}	
 		} catch (SQLException e) {
