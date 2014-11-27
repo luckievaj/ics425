@@ -18,8 +18,11 @@
 			type="text" name="lastName"
 			value="<c:out value="${user.lastName}" />" /> <br /> Username : <input
 			type="text" name="userName"
-			value="<c:out value="${user.userName}" />" /> <br /> <input
-			type="submit" value="Submit" />
+			value="<c:out value="${user.userName}" />" /> <br /> 
+			
+			<input type="submit" value="Return" />
+			<input type="submit" value="Edit" />
+			
 	</form>
 
 </body>

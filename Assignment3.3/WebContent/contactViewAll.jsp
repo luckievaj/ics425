@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=EUC-KR" pageEncoding="ISO-8859-1"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<%@ page
+	import="java.util.List,com.abc.model.*,com.abc.dao.ContactService"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html>
@@ -9,6 +11,15 @@
 <title>Show All Contacts</title>
 </head>
 <body>
+
+<%
+			List<ContactName> contacts = (List<ContactName>) request.getAttribute("contacts");
+			if (null == contacts) {
+
+				contacts = ContactService.getAllContacts();
+
+			}
+		%>
     <table border=1>
         <thead>
             <tr>
@@ -34,7 +45,9 @@
             </tr>
         </thead>
         <tbody>
-          
+          <%
+					for (ContactName contactName : contacts) {
+				%>
             
                 <tr>
                     <td><c:out value="${contactName.contactId}" /></td>

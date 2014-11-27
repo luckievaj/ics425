@@ -193,8 +193,8 @@ public class ContactService {
 		}
 	}
 	
-	public List<ContactName> getAllContacts() {
-		List<ContactName> contactList = new ArrayList<ContactName>();
+	public static List<ContactName> getAllContacts() {
+		List<ContactName> contacts = new ArrayList<ContactName>();
 		try {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select * from contact");
@@ -205,13 +205,13 @@ public class ContactService {
 				contactName.setFirstName(rs.getString("first_name"));
 				contactName.setLastName(rs.getString("last_name"));
 				
-				contactList.add(contactName);
+				contacts.add(contactName);
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
 
-		return contactList;
+		return contacts;
 	}
 	
 	public Contact getContactById(int contactId) {
