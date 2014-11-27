@@ -11,8 +11,9 @@
 <title>Show All Contacts</title>
 </head>
 <body>
+		<h1>List of All Contacts</h1>
 
-<%
+		<%
 			List<ContactName> contacts = (List<ContactName>) request.getAttribute("contacts");
 			if (null == contacts) {
 
@@ -31,7 +32,7 @@
             </tr>
         </thead>
         <tbody>
-          <%
+          		<%
 					for (ContactName contactName : contacts) {
 				%>
             

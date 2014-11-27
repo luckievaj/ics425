@@ -34,7 +34,7 @@ public class ContactController extends HttpServlet {
             int contactId = Integer.parseInt(request.getParameter("contactId"));
             dao.deleteContact(contactId);
             forward = VIEW;
-            request.setAttribute("contacts", dao.getAllContacts());    
+            request.setAttribute("contacts", ContactService.getAllContacts());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = EDIT;
             int contactId = Integer.parseInt(request.getParameter("contactId"));
@@ -42,7 +42,12 @@ public class ContactController extends HttpServlet {
             request.setAttribute("contact", contact);
         } else if (action.equalsIgnoreCase("listContactName")){
             forward = VIEW;
-            request.setAttribute("contacts", dao.getAllContacts());
+            request.setAttribute("contacts", ContactService.getAllContacts());
+        } else if (action.equalsIgnoreCase("view")){
+        	forward = VIEW;
+            int contactId = Integer.parseInt(request.getParameter("contactId"));
+            Contact contact = dao.getContactById(contactId);
+            request.setAttribute("contact", contact);
         } else {
             forward = INSERT;
         }
@@ -94,7 +99,7 @@ public class ContactController extends HttpServlet {
             dao.updateCredentials(credentials);
         }
         RequestDispatcher view = request.getRequestDispatcher(VIEW);
-        request.setAttribute("contacts", dao.getAllContacts());
+        request.setAttribute("contacts", ContactService.getAllContacts());
         view.forward(request, response);
     }
 }
