@@ -52,15 +52,15 @@ public class ContactController extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        ContactName contact = new ContactName();
+        ContactName name = new ContactName();
         Address address = new Address();
         Phone phone = new Phone();
         Email email = new Email();
         Credentials credentials = new Credentials();
 
         String contactId = request.getParameter("contactId");
-        contact.setFirstName(request.getParameter("firstName"));
-        contact.setLastName(request.getParameter("lastName"));
+        name.setFirstName(request.getParameter("firstName"));
+        name.setLastName(request.getParameter("lastName"));
         address.setStreet(request.getParameter("street"));
         address.setCity(request.getParameter("city"));
         address.setState(request.getParameter("state"));
@@ -78,7 +78,7 @@ public class ContactController extends HttpServlet {
         
         if(contactId == null || contactId.isEmpty())
         {
-            dao.addContact(contact);
+            dao.addContact(name);
             dao.addAddress(address);
             dao.addPhone(phone);
             dao.addEmail(email);
@@ -86,8 +86,8 @@ public class ContactController extends HttpServlet {
         }
         else
         {
-            contact.setContactId(Integer.parseInt(contactId));
-            dao.updateContact(contact);
+            name.setContactId(Integer.parseInt(contactId));
+            dao.updateContact(name);
             dao.updateAddress(address);
             dao.updatePhone(phone);
             dao.updateEmail(email);

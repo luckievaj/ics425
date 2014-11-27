@@ -14,7 +14,7 @@
 	<form method="POST" action='ContactController' name="frmAddContact">
 		<p style="color: red">${message}</p>
 		
-		Contact ID: <input type="text" readonly="readonly" name="contactId"
+		<input type="hidden" readonly="readonly" name="contactId"
 			value="<c:out value="${contactName.contactId }"/>"/> <br/>
 		First Name: <input type="text" readonly="readonly" name="firstName"
 			value="<c:out value="${contactName.firstName }"/>"/> <br/>
