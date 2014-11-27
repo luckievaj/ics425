@@ -4,9 +4,21 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-<title>Insert title here</title>
+<title>Edit User Details</title>
 </head>
 <body>
-Test User Edit
+	<form method="POST" action='UserController' name="frmAddUser">
+		<p style="color: red">${message}</p>
+		User ID : <input type="text"  name="userid"
+			value="<c:out value="${user.userid}" />" /> <br /> 
+		First Name : <input type="text" name="firstName"
+			value="<c:out value="${user.firstName}" />" /> <br /> 
+		Last Name : <input type="text" name="lastName"
+			value="<c:out value="${user.lastName}" />" /> <br /> 
+		Username : <input type="text" name="userName"
+			value="<c:out value="${user.userName}" />" /> <br /> 
+			
+		<input type="submit" value="Submit" />
+		<input type="submit" value="Cancel" />
 </body>
 </html>
