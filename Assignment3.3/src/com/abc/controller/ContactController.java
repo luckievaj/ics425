@@ -15,8 +15,10 @@ import com.abc.model.*;
 
 public class ContactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
-    private static String INSERT_OR_EDIT = "/contactConfirm.jsp";
-    private static String LIST_CONTACTS = "/contactViewAll.jsp";
+    private static String CANCEL = "/index.jsp"; 
+    private static String INSERT = "/contactName.jsp";
+    private static String VIEW = "/contactViewAll.jsp";
+    private static String EDIT = "/contactEdit.jsp";
     private ContactService dao;
 
     public ContactController() {
