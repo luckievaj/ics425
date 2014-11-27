@@ -76,8 +76,7 @@ public class ContactController extends HttpServlet {
 		email.setEmail1(request.getParameter("email1"));
 		email.setEmail2(request.getParameter("email2"));
         
-        String contactid = request.getParameter("contactid");
-        if(contactid == null || contactid.isEmpty())
+        if(contactId == null || contactId.isEmpty())
         {
             dao.addContact(contact);
             dao.addAddress(address);
@@ -87,7 +86,7 @@ public class ContactController extends HttpServlet {
         }
         else
         {
-            contact.setContactId(Integer.parseInt(contactid));
+            contact.setContactId(Integer.parseInt(contactId));
             dao.updateContact(contact);
             dao.updateAddress(address);
             dao.updatePhone(phone);
