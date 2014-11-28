@@ -14,10 +14,10 @@
 		<h1>List of All Contacts</h1>
 
 		<%
-			List<ContactName> contacts = (List<ContactName>) request.getAttribute("contacts");
-			if (null == contacts) {
+			List<ContactName> contactList = (List<ContactName>) request.getAttribute("contacts");
+			if (null == contactList) {
 
-				contacts = ContactService.getAllContacts();
+				contactList = ContactService.getAllContacts();
 
 			}
 		%>
@@ -33,7 +33,7 @@
         </thead>
         <tbody>
           		<%
-					for (ContactName contactName : contacts) {
+					for (ContactName contactName : contactList) {
 				%>
             
                 <tr>

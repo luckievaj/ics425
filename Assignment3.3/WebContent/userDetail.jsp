@@ -9,20 +9,21 @@
 <title>Viewing User Details</title>
 </head>
 <body>
+<center>
 	<form method="POST" action='UserController' name="frmAddUser">
 		<p style="color: red">${message}</p>
-		<input type="text" readonly="readonly" name="userid"
-			value="<c:out value="${user.userid}" />" /> <br /> First Name : <input
-			type="text" readonly="readonly" name="firstName"
-			value="<c:out value="${user.firstName}" />" /> <br /> Last Name : <input
-			type="text" readonly="readonly" name="lastName"
-			value="<c:out value="${user.lastName}" />" /> <br /> Username : <input
-			type="text" readonly="readonly" name="userName"
+		User ID : <input type="text" readonly="readonly" name="userid"
+			value="<c:out value="${user.userid}" />" /> <br /> 
+		First Name : <input	type="text" readonly="readonly" name="firstName"
+			value="<c:out value="${user.firstName}" />" /> <br /> 
+		Last Name : <input type="text" readonly="readonly" name="lastName"
+			value="<c:out value="${user.lastName}" />" /> <br /> 
+		Username : <input type="text" readonly="readonly" name="userName"
 			value="<c:out value="${user.userName}" />" /> <br /> 
 			
-			<input type="submit" action="view" value="Previous" />
+		<input type="submit" action="view" value="Previous" />
 			
 	</form>
-
+</center>
 </body>
 </html>

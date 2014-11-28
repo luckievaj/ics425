@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.abc.dao.ContactService;
+import com.abc.dao.*;
 import com.abc.model.*;
 
 
@@ -17,10 +17,9 @@ public class ContactController extends HttpServlet {
     private static final long serialVersionUID = 1L;
     private static String CANCEL = "/index.jsp"; 
     private static String INSERT = "/contactName.jsp";
-    private static String VIEW = "/contactDetails.jsp";
+    private static String VIEW = "/contactDetail.jsp";
     private static String EDIT = "/contactEdit.jsp";
     private static String LIST_CONTACT = "/contactViewAll.jsp";
-
     private ContactService dao;
 
     public ContactController() {
@@ -36,7 +35,7 @@ public class ContactController extends HttpServlet {
             int contactId = Integer.parseInt(request.getParameter("contactId"));
             dao.deleteContact(contactId);
             forward = LIST_CONTACT;
-            request.setAttribute("contacts", ContactService.getAllContacts());    
+            request.setAttribute("contact", ContactService.getAllContacts());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = EDIT;
             int contactId = Integer.parseInt(request.getParameter("contactId"));
@@ -44,7 +43,7 @@ public class ContactController extends HttpServlet {
             request.setAttribute("contact", contact);
         } else if (action.equalsIgnoreCase("listContacts")){
             forward = LIST_CONTACT;
-            request.setAttribute("contacts", ContactService.getAllContacts());
+            request.setAttribute("contactList", ContactService.getAllContacts());
         } else if (action.equalsIgnoreCase("cancel")){
             forward = CANCEL;
         } else if (action.equalsIgnoreCase("view")){

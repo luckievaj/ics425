@@ -10,7 +10,7 @@
 <title>Contact Confirm Page</title>
 </head>
 <body>
-
+<center>
 	<form method="POST" action='ContactController' name="frmAddContact">
 		<p style="color: red">${message}</p>
 		
@@ -49,10 +49,10 @@
 		Description 3: <input type="text" readonly="readonly" name="annDesc3"
 			value="<c:out value="${credentials.annDesc3}"/>"/> <br/>
 
-		<input type="submit" name="previous" value="Previous" /> 
-		<input type="submit" name="confirm" value="Confirm" /> 
-		<input type="submit" name="cancel" value="Cancel" />
+		<input type="submit" name="previous" action="previous" value="Previous" /> 
+		<input type="submit" name="confirm" action="view" value="Confirm" /> 
+		<input type="submit" name="cancel" action="cancel" value="Cancel" />
 	</form>
-
+</center>
 </body>
 </html>
