@@ -9,7 +9,7 @@
 <title>Viewing User Details</title>
 </head>
 <body>
-	<form method="GET" action='UserController' name="frmAddUser">
+	<form method="POST" action='UserController' name="frmAddUser">
 		<p style="color: red">${message}</p>
 		<input type="text" readonly="readonly" name="userid"
 			value="<c:out value="${user.userid}" />" /> <br /> First Name : <input
@@ -20,8 +20,7 @@
 			type="text" readonly="readonly" name="userName"
 			value="<c:out value="${user.userName}" />" /> <br /> 
 			
-			<input type="submit" value="Previous" />
-			<input type="submit" value="Edit" />
+			<input type="submit" action="view" value="Previous" />
 			
 	</form>
 
