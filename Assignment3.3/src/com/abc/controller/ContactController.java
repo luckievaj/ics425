@@ -86,7 +86,8 @@ public class ContactController extends HttpServlet {
         
         if(contactId == null || contactId.isEmpty())
         {
-            dao.addContact(name);
+            int contact_id = dao.addContact(name);
+            address.setContactId(contact_id);
             dao.addAddress(address);
             dao.addPhone(phone);
             dao.addEmail(email);

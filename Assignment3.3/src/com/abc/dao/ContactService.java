@@ -18,18 +18,23 @@ public class ContactService {
 		connection = DbUtil.getConnection();
 	}
 
-	public void addContact(ContactName name) {  //DONE??
+	public int addContact(ContactName name) {  //DONE??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into contact (first_name,last_name) values (?, ?)");
+					.prepareStatement("insert into contact (first_name,last_name) values (?, ?)",Statement.RETURN_GENERATED_KEYS);
 			// Parameters start with 1
 			preparedStatement.setString(1, name.getFirstName());
 			preparedStatement.setString(2, name.getLastName());
 			preparedStatement.executeUpdate();
-
+			ResultSet rs = preparedStatement.getGeneratedKeys();
+			
+			return rs.getInt(1);
+			
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
+		return 0;
+		
 	}
 	
 	public void deleteContact(int contactId) {  //DONE??
@@ -64,12 +69,13 @@ public class ContactService {
 	public void addAddress(Address address) {	// Done??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into contact (street,city,state,zipcode) values (?, ?, ?, ? )");
+					.prepareStatement("insert into address (street,city,state,zipcode,contact_id) values (?, ?, ?, ?,? )");
 			// Parameters start with 1
 			preparedStatement.setString(1, address.getStreet());
 			preparedStatement.setString(2, address.getCity());
 			preparedStatement.setString(3, address.getState());
 			preparedStatement.setString(4, address.getZipCode());
+			preparedStatement.setInt(5, address.getContactId());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -98,10 +104,11 @@ public class ContactService {
 	public void addPhone(Phone phone) {	// Done??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into phone (phone1,phone2) values (?, ?, )");
+					.prepareStatement("insert into phone (phone1,phone2,contact_id) values (?, ?, ? )");
 			// Parameters start with 1
 			preparedStatement.setString(1, phone.getPhone1());
 			preparedStatement.setString(2, phone.getPhone2());
+			preparedStatement.setInt(3, phone.getContactId());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -128,10 +135,11 @@ public class ContactService {
 	public void addEmail(Email email) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into email (email1,email2) values (?, ?, )");
+					.prepareStatement("insert into email (email1,email2,contact_id) values (?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, email.getEmail1());
 			preparedStatement.setString(2, email.getEmail2());
+			preparedStatement.setInt(3, email.getContactId());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
@@ -157,7 +165,7 @@ public class ContactService {
 	public void addCredentials(Credentials credentials) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into crdentials (Ann_Date_1,Ann_Desc_1,Ann_Date_2,Ann_Desc_2,Ann_Data_3,Ann_Desc_3) "
+					.prepareStatement("insert into crdentials (Ann_Date_1,Ann_Desc_1,Ann_Date_2,Ann_Desc_2,Ann_Data_3,Ann_Desc_3,contact_id) "
 							+ "values (?, ?, ?, ?, ?, ?, )");
 			// Parameters start with 1
 			preparedStatement.setString(1, credentials.getAnnDate1());
@@ -166,6 +174,7 @@ public class ContactService {
 			preparedStatement.setString(4, credentials.getAnnDesc2());
 			preparedStatement.setString(5, credentials.getAnnDate3());
 			preparedStatement.setString(6, credentials.getAnnDesc2());
+			preparedStatement.setInt(7, credentials.getContactId());
 			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
