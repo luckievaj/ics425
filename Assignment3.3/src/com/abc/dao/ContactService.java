@@ -170,11 +170,11 @@ public class ContactService {
 							+ "values (?, ?, ?, ?, ?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, credentials.getAnnDate1());
-			preparedStatement.setString(2, credentials.getAnnDesc2());
+			preparedStatement.setString(2, credentials.getAnnDesc1());
 			preparedStatement.setString(3, credentials.getAnnDate2());
 			preparedStatement.setString(4, credentials.getAnnDesc2());
 			preparedStatement.setString(5, credentials.getAnnDate3());
-			preparedStatement.setString(6, credentials.getAnnDesc2());
+			preparedStatement.setString(6, credentials.getAnnDesc3());
 			preparedStatement.setInt(7, credentials.getContactId());
 			preparedStatement.executeUpdate();
 
@@ -189,11 +189,11 @@ public class ContactService {
 					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Date_3=?, Ann_Desc_3=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, cred.getAnnDate1());
-			preparedStatement.setString(2, cred.getAnnDesc2());
+			preparedStatement.setString(2, cred.getAnnDesc1());
 			preparedStatement.setString(3, cred.getAnnDate2());
 			preparedStatement.setString(4, cred.getAnnDesc2());
 			preparedStatement.setString(5, cred.getAnnDate3());
-			preparedStatement.setString(6, cred.getAnnDesc2());
+			preparedStatement.setString(6, cred.getAnnDesc3());
 			preparedStatement.setInt(7, cred.getContactId());
 			preparedStatement.executeUpdate();
 

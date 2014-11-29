@@ -108,9 +108,17 @@ public class ContactController extends HttpServlet {
         {
             name.setContactId(Integer.parseInt(contactId));
             dao.updateContact(name);
+            
+            address.setContactId(Integer.parseInt(contactId));
             dao.updateAddress(address);
+            
+            phone.setContactId(Integer.parseInt(contactId));
             dao.updatePhone(phone);
+            
+            email.setContactId(Integer.parseInt(contactId));
             dao.updateEmail(email);
+            
+            credentials.setContactId(Integer.parseInt(contactId));
             dao.updateCredentials(credentials);
         }
         RequestDispatcher view = request.getRequestDispatcher(LIST_CONTACT);
