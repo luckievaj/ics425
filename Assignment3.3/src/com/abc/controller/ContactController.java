@@ -19,7 +19,7 @@ public class ContactController extends HttpServlet {
     private static String INSERT = "/contactName.jsp";
     private static String VIEW = "/contactDetail.jsp";
     private static String EDIT = "/contactEdit.jsp";
-    private static String LIST_CONTACT = "/viewAllUsers.jsp";
+    private static String LIST_CONTACT = "/contactViewAll.jsp";
     private ContactService dao;
 
     public ContactController() {
