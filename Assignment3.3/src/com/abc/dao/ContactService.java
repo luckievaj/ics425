@@ -66,10 +66,10 @@ public class ContactService {
 		}
 	}
 	
-	public int addAddress(Address address) {	// Done??
+	public void addAddress(Address address) {	// Done??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into address (street,city,state,zipcode,contact_id) values (?, ?, ?, ?,? )",Statement.RETURN_GENERATED_KEYS);
+					.prepareStatement("insert into address (street,city,state,zipcode,contact_id) values (?, ?, ?, ?,? )");
 			// Parameters start with 1
 			preparedStatement.setString(1, address.getStreet());
 			preparedStatement.setString(2, address.getCity());
@@ -77,14 +77,23 @@ public class ContactService {
 			preparedStatement.setString(4, address.getZipCode());
 			preparedStatement.setInt(5, address.getContactId());
 			preparedStatement.executeUpdate();
-			ResultSet rs = preparedStatement.getGeneratedKeys();
-			
-			return rs.getInt(1);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+	}
+	
+	public void deleteAddress(int contactId) {  //DONE??
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from contact where contact_id=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, contactId);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void updateAddress(Address add) {  // Done??
@@ -105,24 +114,33 @@ public class ContactService {
 		}
 	}
 	
-	public int addPhone(Phone phone) {	// Done??
+	public void addPhone(Phone phone) {	// Done??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into phone (phone1,phone2,contact_id) values (?, ?, ? )",Statement.RETURN_GENERATED_KEYS);
+					.prepareStatement("insert into phone (phone1,phone2,contact_id) values (?, ?, ? )");
 			// Parameters start with 1
 			preparedStatement.setString(1, phone.getPhone1());
 			preparedStatement.setString(2, phone.getPhone2());
 			preparedStatement.setInt(3, phone.getContactId());
 			preparedStatement.executeUpdate();
 
-			ResultSet rs = preparedStatement.getGeneratedKeys();
-			
-			return rs.getInt(1);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+	}
+
+	public void deletePhone(int contactId) {  //DONE??
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from contact where contact_id=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, contactId);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void updatePhone(Phone updatePhone) {  // Done??
@@ -141,24 +159,33 @@ public class ContactService {
 		}
 	}
 	
-	public int addEmail(Email email) {	// Done
+	public void addEmail(Email email) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into email (email1,email2,contact_id) values (?, ?, ?)",Statement.RETURN_GENERATED_KEYS);
+					.prepareStatement("insert into email (email1,email2,contact_id) values (?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, email.getEmail1());
 			preparedStatement.setString(2, email.getEmail2());
 			preparedStatement.setInt(3, email.getContactId());
 			preparedStatement.executeUpdate();
 
-			ResultSet rs = preparedStatement.getGeneratedKeys();
-			
-			return rs.getInt(1);
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
+	}
+
+	public void deleteEmail(int contactId) {  //DONE??
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from contact where contact_id=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, contactId);
+			preparedStatement.executeUpdate();
+
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
 	}
 	
 	public void updateEmail(Email updateEmail) {	// Done
@@ -177,7 +204,7 @@ public class ContactService {
 		}
 	}
 	
-	public int addCredentials(Credentials credentials) {	// Done
+	public void addCredentials(Credentials credentials) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("insert into credentials (Ann_Date_1,Ann_Desc_1,Ann_Date_2,Ann_Desc_2,Ann_Data_3,Ann_Desc_3,contact_id) "
@@ -192,20 +219,29 @@ public class ContactService {
 			preparedStatement.setInt(7, credentials.getContactId());
 			preparedStatement.executeUpdate();
 
-			ResultSet rs = preparedStatement.getGeneratedKeys();
-			
-			return rs.getInt(1);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+	}
+	
+
+	public void deleteCredentials(int contactId) {  //DONE??
+		try {
+			PreparedStatement preparedStatement = connection
+					.prepareStatement("delete from contact where contact_id=?");
+			// Parameters start with 1
+			preparedStatement.setInt(1, contactId);
+			preparedStatement.executeUpdate();
 
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		return 0;
 	}
 	
 	public void updateCredentials(Credentials cred) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Date_3=?, Ann_Desc_3=?"
+					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Date_3=?, Ann_Desc_3=?" +
 							"where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, cred.getAnnDate1());

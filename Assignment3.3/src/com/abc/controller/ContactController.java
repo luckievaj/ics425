@@ -34,6 +34,11 @@ public class ContactController extends HttpServlet {
         if (action.equalsIgnoreCase("delete")){
             int contactId = Integer.parseInt(request.getParameter("contactId"));
             dao.deleteContact(contactId);
+            dao.deleteAddress(contactId);
+            dao.deletePhone(contactId);
+            dao.deleteEmail(contactId);
+            dao.deleteCredentials(contactId);
+
             forward = LIST_CONTACT;
             request.setAttribute("contactList", ContactService.getAllContacts());    
         } else if (action.equalsIgnoreCase("edit")){
