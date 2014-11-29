@@ -14,4 +14,14 @@
     <servlet-name>UserController</servlet-name>
     <url-pattern>/UserController</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ContactController</display-name>
+    <servlet-name>ContactController</servlet-name>
+    <servlet-class>com.abc.controller.ContactController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ContactController</servlet-name>
+    <url-pattern>/ContactController</url-pattern>
+  </servlet-mapping>
 </web-app>
