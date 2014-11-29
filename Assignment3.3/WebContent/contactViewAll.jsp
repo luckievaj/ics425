@@ -15,7 +15,7 @@
 		<h1>List of All Contacts</h1>
 
 		<%
-		session.invalidate();
+		/* session.invalidate(); */
 			List<ContactName> contacts = (List<ContactName>) request.getAttribute("contacts");
 			if (null == contacts) {
 
