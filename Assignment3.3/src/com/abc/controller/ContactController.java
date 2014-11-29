@@ -91,8 +91,8 @@ public class ContactController extends HttpServlet {
 		email.setEmail2(request.getParameter("email2"));
 //		System.out.println("contact ID is:" + contactId);
 
-//if(contactId == null || contactId.isEmpty())
-	if(Integer.parseInt(contactId) == 0)
+if(contactId == null || contactId.isEmpty() || Integer.parseInt(contactId) == 0)
+//	if(Integer.parseInt(contactId) == 0)
         {
             int contact_id = dao.addContact(name);
             

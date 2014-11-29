@@ -11,6 +11,7 @@
 <title>Show All Contacts</title>
 </head>
 <body>
+<center>
 		<h1>List of All Contacts</h1>
 
 		<%
@@ -51,5 +52,7 @@
         </tbody>
     </table>
     <p><a href="ContactController?action=insert">Add Contact</a></p>
+    <p><a href="ContactController?action=cancel">Home</a></p>
+    </center>
 </body>
 </html>
