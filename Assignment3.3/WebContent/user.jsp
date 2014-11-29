@@ -10,7 +10,7 @@
 <title>Add new user</title>
 </head>
 <body>
-
+<center>
 
 	<form method="POST" action='UserController' name="frmAddUser">
 		<p style="color: red">${message}</p>
@@ -27,5 +27,6 @@
 		<input type="submit" value="Cancel" />
 		
 	</form>
+</center>
 </body>
 </html>

@@ -43,21 +43,22 @@ public class AddressServlet extends HttpServlet {
                 if (null == address) {
                     address = new Address();
                     request.getSession().setAttribute("address", address);
-                }    
+                } if ("".equalsIgnoreCase(request.getParameter("street"))
+						|| "".equalsIgnoreCase(request.getParameter("city"))
+						|| "".equalsIgnoreCase(request.getParameter("zipCode"))) {
+					request.setAttribute("message", "Please enter all fields!");
+					forwardedPage = cancelPage;
+				} else {   
                 address.setStreet(request.getParameter("street"));
                 address.setCity(request.getParameter("city"));
                 address.setState(request.getParameter("state"));
                 address.setZipCode(request.getParameter("zipCode"));
-               
-                
-            }        
+				}        
+            }
+            getServletContext().getRequestDispatcher(forwardedPage).
+            forward(request, response);
         }
-        getServletContext().getRequestDispatcher(forwardedPage).
-          forward(request, response);
-
 	}
-
-
-	}
+}
 
 

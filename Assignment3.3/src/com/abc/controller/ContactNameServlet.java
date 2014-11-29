@@ -48,12 +48,10 @@ public class ContactNameServlet extends HttpServlet {
 				} else {
 					contactName.setFirstName(request.getParameter("firstName"));
 					contactName.setLastName(request.getParameter("lastName"));
-					
 				}
 			}
 			getServletContext().getRequestDispatcher(forwardedPage).forward(
 					request, response);
-
 		}
 	}
 }

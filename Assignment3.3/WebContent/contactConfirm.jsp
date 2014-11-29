@@ -7,6 +7,7 @@
 <html>
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+
 <title>Contact Confirm Page</title>
 </head>
 <body>
@@ -49,9 +50,9 @@
 		Description 3: <input type="text" readonly="readonly" name="annDesc3"
 			value="<c:out value="${credentials.annDesc3}"/>"/> <br/>
 
-		<input type="submit" name="previous" action="previous" value="Previous" /> 
-		<input type="submit" name="confirm" action="view" value="Confirm" /> 
-		<input type="submit" name="cancel" action="cancel" value="Cancel" />
+		<input type="submit" value="Previous" />
+		<input type="submit" value="Submit" />
+		<input type="submit" value="Cancel" />
 	</form>
 </center>
 </body>

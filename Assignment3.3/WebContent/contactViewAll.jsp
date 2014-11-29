@@ -14,10 +14,10 @@
 		<h1>List of All Contacts</h1>
 
 		<%
-			List<ContactName> contactList = (List<ContactName>) request.getAttribute("contacts");
-			if (null == contactList) {
+			List<ContactName> contacts = (List<ContactName>) request.getAttribute("contacts");
+			if (null == contacts) {
 
-				contactList = ContactService.getAllContacts();
+				contacts = ContactService.getAllContacts();
 
 			}
 		%>
@@ -33,16 +33,16 @@
         </thead>
         <tbody>
           		<%
-					for (ContactName contactName : contactList) {
+					for (ContactName cont : contacts) {
 				%>
             
                 <tr>
-                    <td><c:out value="${contactName.contactId}" /></td>
-                    <td><c:out value="${contactName.firstName}" /></td>
-                    <td><c:out value="${contactName.lastName}" /></td>
+                    <td><c:out value="${cont.contactId}" /></td>
+                    <td><c:out value="${cont.firstName}" /></td>
+                    <td><c:out value="${cont.lastName}" /></td>
           
-                    <td><a href="ContactController?action=edit&contactId=<c:out value="${contactName.contactId}"/>">Update</a></td>
-                    <td><a href="ContactController?action=delete&contactId=<c:out value="${contactName.contactId}"/>">Delete</a></td>
+                    <td><a href="ContactController?action=edit&contactId=<c:out value="${cont.contactId}"/>">Update</a></td>
+                    <td><a href="ContactController?action=delete&contactId=<c:out value="${cont.contactId}"/>">Delete</a></td>
                 </tr>
 				<%
 					}

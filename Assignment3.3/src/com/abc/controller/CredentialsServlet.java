@@ -46,18 +46,25 @@ public class CredentialsServlet extends HttpServlet {
                 	credentials = new Credentials();
                     request.getSession().setAttribute("credentials", credentials);
                 }
+				if ("".equalsIgnoreCase(request.getParameter("annDate1"))
+						|| "".equalsIgnoreCase(request.getParameter("annDesc1")) &&
+						"".equalsIgnoreCase(request.getParameter("annDate2"))
+						|| "".equalsIgnoreCase(request.getParameter("annDesc2")) &&
+						"".equalsIgnoreCase(request.getParameter("annDate3"))
+						|| "".equalsIgnoreCase(request.getParameter("annDesc3"))) {
+					request.setAttribute("message", "Please enter all fields!");
+					forwardedPage = cancelPage;
+				} else {
                 credentials.setAnnDate1(request.getParameter("annDate1"));
                 credentials.setAnnDesc1(request.getParameter("annDesc1"));
                 credentials.setAnnDate2(request.getParameter("annDate2"));
                 credentials.setAnnDesc2(request.getParameter("annDesc2"));
                 credentials.setAnnDate3(request.getParameter("annDate3"));
                 credentials.setAnnDesc3(request.getParameter("annDesc3"));
-                
-            }        
+				}        
+            }
+            getServletContext().getRequestDispatcher(forwardedPage).
+            forward(request, response);
         }
-        getServletContext().getRequestDispatcher(forwardedPage).
-          forward(request, response);
-
 	}
-
 }

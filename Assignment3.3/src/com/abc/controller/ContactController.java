@@ -19,7 +19,7 @@ public class ContactController extends HttpServlet {
     private static String INSERT = "/contactName.jsp";
     private static String VIEW = "/contactDetail.jsp";
     private static String EDIT = "/contactEdit.jsp";
-    private static String LIST_CONTACT = "/contactViewAll.jsp";
+    private static String LIST_CONTACT = "/viewAllUsers.jsp";
     private ContactService dao;
 
     public ContactController() {
@@ -35,7 +35,7 @@ public class ContactController extends HttpServlet {
             int contactId = Integer.parseInt(request.getParameter("contactId"));
             dao.deleteContact(contactId);
             forward = LIST_CONTACT;
-            request.setAttribute("contact", ContactService.getAllContacts());    
+            request.setAttribute("contactList", ContactService.getAllContacts());    
         } else if (action.equalsIgnoreCase("edit")){
             forward = EDIT;
             int contactId = Integer.parseInt(request.getParameter("contactId"));
@@ -101,8 +101,8 @@ public class ContactController extends HttpServlet {
             dao.updateEmail(email);
             dao.updateCredentials(credentials);
         }
-        RequestDispatcher view = request.getRequestDispatcher(VIEW);
-        request.setAttribute("contacts", ContactService.getAllContacts());
+        RequestDispatcher view = request.getRequestDispatcher(LIST_CONTACT);
+        request.setAttribute("contactList", ContactService.getAllContacts());
         view.forward(request, response);
     }
 }

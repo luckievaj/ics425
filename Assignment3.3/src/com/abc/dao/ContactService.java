@@ -7,7 +7,6 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
-
 import com.abc.model.*;
 import com.abc.util.DbUtil;
 
@@ -199,11 +198,11 @@ public class ContactService {
 			Statement statement = connection.createStatement();
 			ResultSet rs = statement.executeQuery("select * from contact");
 			while (rs.next()) {
-				ContactName contactName = new ContactName();
-				contactName.setContactId(rs.getInt("contact_id"));
-				contactName.setFirstName(rs.getString("first_name"));
-				contactName.setLastName(rs.getString("last_name"));	
-				contacts.add(contactName);
+				ContactName contact = new ContactName();
+				contact.setContactId(rs.getInt("contact_id"));
+				contact.setFirstName(rs.getString("first_name"));
+				contact.setLastName(rs.getString("last_name"));	
+				contacts.add(contact);
 			}	
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -247,12 +246,10 @@ public class ContactService {
 				contact.setPhone(phn);
 				contact.setEmail(eml);
 				contact.setCredentials(cred);
-				
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-
 		return contact;
 	}
 }

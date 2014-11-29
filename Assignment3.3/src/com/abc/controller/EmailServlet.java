@@ -45,15 +45,17 @@ public class EmailServlet extends HttpServlet {
                 if (null == email) {
                     email = new Email();
                     request.getSession().setAttribute("email", email);
-                }    
+                } if ("".equalsIgnoreCase(request.getParameter("email1"))
+						|| "".equalsIgnoreCase(request.getParameter("email2"))) {
+					request.setAttribute("message", "Please enter all fields!");
+					forwardedPage = cancelPage;
+				} else {   
                 email.setEmail1(request.getParameter("email1"));
                 email.setEmail2(request.getParameter("email2"));
-                                          
-            }        
+				}        
+            }
+            getServletContext().getRequestDispatcher(forwardedPage).
+            forward(request, response);
         }
-        getServletContext().getRequestDispatcher(forwardedPage).
-          forward(request, response);
-
 	}
-
 }

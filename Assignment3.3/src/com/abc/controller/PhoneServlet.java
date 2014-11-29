@@ -42,15 +42,17 @@ public class PhoneServlet extends HttpServlet {
                 if (null == phone) {
                     phone = new Phone();
                     request.getSession().setAttribute("phone", phone);
-                }    
+                } if ("".equalsIgnoreCase(request.getParameter("phone1"))
+						|| "".equalsIgnoreCase(request.getParameter("phone2"))) {
+					request.setAttribute("message", "Please enter all fields!");
+					forwardedPage = cancelPage;
+				} else {    
                 phone.setPhone1(request.getParameter("phone1"));
                 phone.setPhone2(request.getParameter("phone2"));
-                                          
-            }        
+				}        
+            }
+            getServletContext().getRequestDispatcher(forwardedPage).
+            forward(request, response);
         }
-        getServletContext().getRequestDispatcher(forwardedPage).
-          forward(request, response);
-
 	}
-
 }

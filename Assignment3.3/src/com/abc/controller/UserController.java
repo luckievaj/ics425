@@ -65,7 +65,8 @@ public class UserController extends HttpServlet {
         user.setLastName(request.getParameter("lastName"));
         user.setUserName(request.getParameter("userName"));
         
-       
+        //need null validation
+        
         if(userid == null || userid.isEmpty())
         {
             dao.addUser(user);
