@@ -86,7 +86,7 @@ public class ContactService {
 	public void deleteAddress(int contactId) {  //DONE??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from contact where contact_id=?");
+					.prepareStatement("delete from address where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, contactId);
 			preparedStatement.executeUpdate();
@@ -133,7 +133,7 @@ public class ContactService {
 	public void deletePhone(int contactId) {  //DONE??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from contact where contact_id=?");
+					.prepareStatement("delete from phone where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, contactId);
 			preparedStatement.executeUpdate();
@@ -178,7 +178,7 @@ public class ContactService {
 	public void deleteEmail(int contactId) {  //DONE??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from contact where contact_id=?");
+					.prepareStatement("delete from email where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, contactId);
 			preparedStatement.executeUpdate();
@@ -228,7 +228,7 @@ public class ContactService {
 	public void deleteCredentials(int contactId) {  //DONE??
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("delete from contact where contact_id=?");
+					.prepareStatement("delete from credentials where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setInt(1, contactId);
 			preparedStatement.executeUpdate();
@@ -241,7 +241,7 @@ public class ContactService {
 	public void updateCredentials(Credentials cred) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Data_3=?, Ann_Desc_3=?" +
+					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Date_3=?, Ann_Desc_3=?" +
 							"where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, cred.getAnnDate1());
