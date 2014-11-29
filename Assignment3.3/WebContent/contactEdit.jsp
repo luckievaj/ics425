@@ -9,6 +9,8 @@
 <title>Edit Contact Details</title>
 </head>
 <body>
+<center>
+<h1>Edit Contact</h1>
 <form method="POST" action='ContactController' name="frmAddContact">
 		<p style="color: red">${message}</p>
 
@@ -48,5 +50,6 @@
 		<input type="submit" name="confirm" value="Confirm" /> 
 		<input type="submit" name="cancel" value="Cancel" />
 	</form>
+	</center>
 </body>
 </html>
