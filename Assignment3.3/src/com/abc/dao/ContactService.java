@@ -88,6 +88,7 @@ public class ContactService {
 			PreparedStatement preparedStatement = connection
 					.prepareStatement("update contact set street=?, city=?, state=?, zipCode=?" + 
 							"where contact_id=?");
+			//hey 
 			// Parameters start with 1
 			preparedStatement.setString(1, add.getStreet());
 			preparedStatement.setString(2, add.getCity());
@@ -165,8 +166,8 @@ public class ContactService {
 	public void addCredentials(Credentials credentials) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("insert into crdentials (Ann_Date_1,Ann_Desc_1,Ann_Date_2,Ann_Desc_2,Ann_Data_3,Ann_Desc_3,contact_id) "
-							+ "values (?, ?, ?, ?, ?, ?, )");
+					.prepareStatement("insert into credentials (Ann_Date_1,Ann_Desc_1,Ann_Date_2,Ann_Desc_2,Ann_Data_3,Ann_Desc_3,contact_id) "
+							+ "values (?, ?, ?, ?, ?, ?, ?)");
 			// Parameters start with 1
 			preparedStatement.setString(1, credentials.getAnnDate1());
 			preparedStatement.setString(2, credentials.getAnnDesc2());

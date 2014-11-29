@@ -24,11 +24,11 @@
 		Street: <input type="text" readonly="readonly" name="street"
 			value="<c:out value="${address.street }"/>"/> <br/>
 		City: <input type="text" readonly="readonly" name="city"
-			value="<c:out value="${address.street }"/>"/> <br/>
+			value="<c:out value="${address.city }"/>"/> <br/>
 		State: <input type="text" readonly="readonly" name="state"
-			value="<c:out value="${address.street }"/>"/> <br/>
+			value="<c:out value="${address.state }"/>"/> <br/>
 		Zip Code: <input type="text" readonly="readonly" name="zipCode"
-			value="<c:out value="${address.street }"/>"/> <br/>
+			value="<c:out value="${address.zipCode }"/>"/> <br/>
 		Phone 1: <input type="text" readonly="readonly" name="phone1"
 			value="<c:out value="${phone.phone1}"/>"/> <br/>
 		Phone 2: <input type="text" readonly="readonly" name="phone2"
