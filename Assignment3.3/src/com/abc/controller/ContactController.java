@@ -66,8 +66,8 @@ public class ContactController extends HttpServlet {
         Email email = new Email();
         Credentials credentials = new Credentials();
 
-//        String contactId = request.getParameter("contactId");
-        String contactId = null;
+        String contactId = request.getParameter("contactId");
+//        String contactId = null;
         name.setFirstName(request.getParameter("firstName"));
         name.setLastName(request.getParameter("lastName"));
         address.setStreet(request.getParameter("street"));
@@ -84,8 +84,10 @@ public class ContactController extends HttpServlet {
 		phone.setPhone2(request.getParameter("phone2"));
 		email.setEmail1(request.getParameter("email1"));
 		email.setEmail2(request.getParameter("email2"));
-        
-        if(contactId == null || contactId.isEmpty())
+//		System.out.println("contact ID is:" + contactId);
+
+//if(contactId == null || contactId.isEmpty())
+	if(Integer.parseInt(contactId) == 0)
         {
             int contact_id = dao.addContact(name);
             

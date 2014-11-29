@@ -37,12 +37,12 @@
 				%>
             
                 <tr>
-                    <td><c:out value="${cont.contactId}" /></td>
-                    <td><c:out value="${cont.firstName}" /></td>
-                    <td><c:out value="${cont.lastName}" /></td>
+                    <td><%=cont.getFirstName()%></td>
+                    <td><%=cont.getLastName()%></td>
+                    <td><%=cont.getContactId()%></td>
           
-                    <td><a href="ContactController?action=edit&contactId=<c:out value="${cont.contactId}"/>">Update</a></td>
-                    <td><a href="ContactController?action=delete&contactId=<c:out value="${cont.contactId}"/>">Delete</a></td>
+                    <td><a href="ContactController?action=edit&contactId=<c:out value="<%=cont.getContactId()%>"/>">Update</a></td>
+                    <td><a href="ContactController?action=delete&contactId=<c:out value="<%=cont.getContactId()%>"/>">Delete</a></td>
                 </tr>
 				<%
 					}
