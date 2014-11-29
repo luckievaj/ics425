@@ -45,7 +45,7 @@ public class PhoneServlet extends HttpServlet {
                 } if ("".equalsIgnoreCase(request.getParameter("phone1"))
 						|| "".equalsIgnoreCase(request.getParameter("phone2"))) {
 					request.setAttribute("message", "Please enter all fields!");
-					forwardedPage = cancelPage;
+					forwardedPage = "/phone.jsp";
 				} else {    
                 phone.setPhone1(request.getParameter("phone1"));
                 phone.setPhone2(request.getParameter("phone2"));

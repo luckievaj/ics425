@@ -47,7 +47,7 @@ public class AddressServlet extends HttpServlet {
 						|| "".equalsIgnoreCase(request.getParameter("city"))
 						|| "".equalsIgnoreCase(request.getParameter("zipCode"))) {
 					request.setAttribute("message", "Please enter all fields!");
-					forwardedPage = cancelPage;
+					forwardedPage = "/address.jsp";
 				} else {   
                 address.setStreet(request.getParameter("street"));
                 address.setCity(request.getParameter("city"));

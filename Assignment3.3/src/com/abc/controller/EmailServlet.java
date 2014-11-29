@@ -48,7 +48,7 @@ public class EmailServlet extends HttpServlet {
                 } if ("".equalsIgnoreCase(request.getParameter("email1"))
 						|| "".equalsIgnoreCase(request.getParameter("email2"))) {
 					request.setAttribute("message", "Please enter all fields!");
-					forwardedPage = cancelPage;
+					forwardedPage = "/email.jsp";
 				} else {   
                 email.setEmail1(request.getParameter("email1"));
                 email.setEmail2(request.getParameter("email2"));

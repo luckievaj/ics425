@@ -53,7 +53,7 @@ public class CredentialsServlet extends HttpServlet {
 						"".equalsIgnoreCase(request.getParameter("annDate3"))
 						|| "".equalsIgnoreCase(request.getParameter("annDesc3"))) {
 					request.setAttribute("message", "Please enter all fields!");
-					forwardedPage = cancelPage;
+					forwardedPage = "/credentials.jsp";
 				} else {
                 credentials.setAnnDate1(request.getParameter("annDate1"));
                 credentials.setAnnDesc1(request.getParameter("annDesc1"));

@@ -44,7 +44,7 @@ public class ContactNameServlet extends HttpServlet {
 				if ("".equalsIgnoreCase(request.getParameter("firstName"))
 						|| "".equalsIgnoreCase(request.getParameter("lastName"))) {
 					request.setAttribute("message", "Please enter all fields!");
-					forwardedPage = cancelPage;
+					forwardedPage = "/contactName.jsp";
 				} else {
 					contactName.setFirstName(request.getParameter("firstName"));
 					contactName.setLastName(request.getParameter("lastName"));
