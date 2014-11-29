@@ -241,7 +241,7 @@ public class ContactService {
 	public void updateCredentials(Credentials cred) {	// Done
 		try {
 			PreparedStatement preparedStatement = connection
-					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Date_3=?, Ann_Desc_3=?" +
+					.prepareStatement("update credentials set Ann_Date_1=?, Ann_Desc_1=?, Ann_Date_2=?, Ann_Desc_2=?, Ann_Data_3=?, Ann_Desc_3=?" +
 							"where contact_id=?");
 			// Parameters start with 1
 			preparedStatement.setString(1, cred.getAnnDate1());
